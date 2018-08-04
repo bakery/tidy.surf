@@ -1,5 +1,6 @@
 import React from 'react'
+import List from '../components/List'
 
 export default () => (
-  <h1>hello there</h1>  
+  <List />
 )
