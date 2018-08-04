@@ -1,0 +1,14 @@
+{
+  "name": "Tidy.surf",
+  "description": "Waves, winds and tides",
+  "formation": {
+    "web": {
+      "quantity": 1
+    }
+  },
+  "buildpacks": [
+    {
+      "url": "heroku/nodejs"
+    }
+  ]
+}

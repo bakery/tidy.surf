@@ -5,8 +5,6 @@ function List ({
   data: { loading, error, books },
   loadMorePosts
 }) {
-  console.log('>>>>>>>>>>>> data is', arguments);
-
   if (error) {
     return <strong>Error</strong>;
   }
