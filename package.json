@@ -3,5 +3,9 @@
   "private": true,
   "devDependencies": {
     "lerna": "^3.0.0-rc.0"
+  },
+  "scripts": {
+    "heroku-postbuild": "lerna bootstrap && lerna exec --scope app -- npm run build",
+    "start": "lerna exec --scope app -- npm run start"
   }
 }
