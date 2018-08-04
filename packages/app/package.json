@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon -w ./ --exec \"babel-node server.js --presets es2015,stage-0\"",
+    "dev": "nodemon --exec \"babel-node server.js --presets es2015,stage-0\"",
     "build": "babel server.js api/**/*.js -s -D -d dist --ignore **/*.test.js --presets es2015,stage-0 && next build",
     "start": "NODE_ENV=production node ./dist/server.js"
   },
@@ -15,6 +15,7 @@
     "apollo-client": "^2.3.7",
     "apollo-server": "^2.0.0",
     "apollo-server-express": "^2.0.0",
+    "dotenv": "^6.0.0",
     "express": "^4.16.3",
     "graphql": "^0.13.2",
     "graphql-tag": "^2.9.2",
