@@ -1,0 +1,7 @@
+{
+  "name": "tidy.surf",
+  "private": true,
+  "devDependencies": {
+    "lerna": "^3.0.0-rc.0"
+  }
+}
