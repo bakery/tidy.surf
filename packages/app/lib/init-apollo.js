@@ -15,7 +15,7 @@ function create(initialState) {
     connectToDevTools: process.browser,
     ssrMode: !process.browser, // Disables forceFetch on the server (so queries are only run once)
     link: new HttpLink({
-      uri: 'http://localhost:3000/graphql',
+      uri: process.env.API_URL || 'http://localhost:3000/graphql',
       // credentials: 'same-origin' // Additional fetch() options like `credentials` or `headers`
     }),
     cache: new InMemoryCache().restore(initialState || {})
