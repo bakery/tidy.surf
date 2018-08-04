@@ -5,8 +5,7 @@
     "lerna": "^3.0.0-rc.0"
   },
   "scripts": {
-    "heroku-postbuild": "lerna bootstrap && lerna exec --scope app -- npm run build",
-    "start": "lerna exec --scope app -- npm run start"
+    "heroku-postbuild": "lerna bootstrap && lerna exec --scope app -- npm run build"
   },
   "dependencies": {
     "babel-cli": "^6.26.0",
