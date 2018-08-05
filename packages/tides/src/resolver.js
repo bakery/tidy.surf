@@ -1,4 +1,4 @@
-import Tides from './lib/Tides'
+import Tides from './lib/tides'
 
 export default {
   Query: {
