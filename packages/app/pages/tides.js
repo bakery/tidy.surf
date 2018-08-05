@@ -2,5 +2,8 @@ import React from 'react'
 import List from '../components/List'
 
 export default () => (
-  <List />  
+  <div>
+    <h1>Tides in Lisbon</h1>
+    <List />
+  </div>
 )

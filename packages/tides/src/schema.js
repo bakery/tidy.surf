@@ -1,17 +1,14 @@
 import gql from 'graphql-tag';
 
 export default gql`
-  # Comments in GraphQL are defined with the hash (#) symbol.
-
-  # This "Book" type can be used in other type declarations.
-  type Book {
-    title: String
-    author: String
+  type Tide {
+    dt: Int!
+    date: String!
+    height: Float!
+    type: String!
   }
 
-  # The "Query" type is the root of all GraphQL queries.
-  # (A "Mutation" type will be covered later on.)
   type Query {
-    books: [Book]
+    tides(lat: Float!, lon: Float!): [Tide]
   }
 `;

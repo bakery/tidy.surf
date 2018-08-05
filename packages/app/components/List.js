@@ -2,20 +2,20 @@ import { graphql } from 'react-apollo'
 import gql from 'graphql-tag'
 
 function List ({
-  data: { loading, error, books },
+  data: { loading, error, tides },
   loadMorePosts
 }) {
   if (error) {
     return <strong>Error</strong>;
   }
 
-  if (books && books.length) {
+  if (tides && tides.length) {
     return (
       <section>
         <ul>
-          {books.map((book, index) => (
-            <li key={book.title}>
-              {book.title} by {book.author}
+          {tides.map(({ dt, date, height, type }, index) => (
+            <li key={dt}>
+              ({type}) - {height}m @ {date}
             </li>
           ))}
         </ul>
@@ -27,10 +27,12 @@ function List ({
 }
 
 export const allBooks = gql`
-  query allBooks {
-    books {
-      title
-      author
+  query getTides($lat: Float!, $lon: Float!) {
+    tides(lat: $lat, lon: $lon) {
+      dt
+      date
+      height
+      type
     }
   }
 `;
@@ -38,6 +40,12 @@ export const allBooks = gql`
 // The `graphql` wrapper executes a GraphQL query and makes the results
 // available on the `data` prop of the wrapped component (PostList)
 export default graphql(allBooks, {
+  options: {
+    variables: {
+      lat: 50.34,
+      lon: -4.24,
+    },
+  },
   props: ({ data }) => {
     return ({
       data,
