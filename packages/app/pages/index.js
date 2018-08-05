@@ -63,7 +63,7 @@ export default () => (
     `}</style>
     
     <Head>
-      <meta charset="utf-8" /> 
+      <meta charSet="utf-8" /> 
       <meta name="viewport" content="width=device-width" />
       <title>Tidy Surf - Waves, winds and tides</title>
       <link rel="apple-touch-icon" sizes="57x57" href="/static/icons/apple-icon-57x57.png" />

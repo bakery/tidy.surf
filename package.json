@@ -5,6 +5,7 @@
     "lerna": "^3.0.0-rc.0"
   },
   "scripts": {
+    "dev": "lerna bootstrap --scope app --scope tide && lerna run --parallel dev",
     "heroku-postbuild": "lerna bootstrap && lerna exec --scope app -- npm run build"
   },
   "dependencies": {
