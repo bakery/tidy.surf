@@ -3,10 +3,12 @@ const debug = require('debug')('app');
 import _ from 'lodash';
 import React, { Component } from 'react'
 import PropTypes from 'prop-types';
+import { withRouter } from 'next/router'
 import List from '../components/List'
+import SpotLink from '../components/SpotLink';
 import { spotsList } from '../lib/spots-list';
 
-export default class Tides extends Component {
+class Tides extends Component {
   static getInitialProps ({
     query: {
       citySlug,
@@ -19,7 +21,8 @@ export default class Tides extends Component {
   }
 
   render () {
-    debug('spot', this.props.spot);
+    debug('router', this.props.router);
+    
     const { spot } = this.props;
     if (_.isEmpty(spot)) {
       return (<div><h1>No spot available</h1></div>)
@@ -30,6 +33,13 @@ export default class Tides extends Component {
       <div>
         <h1>Tides in { city }, { state }, { country }</h1>
         <List />
+        <ul>
+          {
+            _.map(spotsList, (s, key) => (
+              <li key={key}><SpotLink countrySlug={s.countrySlug} citySlug={s.citySlug} stateSlug={s.stateSlug} /></li>
+            ))
+          }
+        </ul>
       </div>
     )
   }
@@ -40,5 +50,8 @@ Tides.propTypes = {
     city: PropTypes.string.isRequired,
     state: PropTypes.string.isRequired,
     country: PropTypes.string.isRequired,
-  }).isRequired
+  }).isRequired,
+  router: PropTypes.object.isRequired,
 };
+
+export default withRouter(Tides);

@@ -27,6 +27,7 @@ app.prepare().then(() => {
       {
         citySlug: req.params.citySlug,
         countrySlug: req.params.countrySlug,
+        stateSlug: req.params.stateSlug,
       },
     )
   });

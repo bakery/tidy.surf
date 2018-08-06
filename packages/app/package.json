@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon --exec \"babel-node server.js --presets env\"",
+    "dev": "nodemon --exec \"babel-node server.js --presets @babel/env\"",
     "build": "babel server.js api/**/*.js -s -D -d dist --ignore **/*.test.js --presets es2015,stage-0 && next build",
     "start": "NODE_ENV=production node ./dist/server.js"
   },
@@ -30,6 +30,7 @@
     "tides": "1.0.0"
   },
   "devDependencies": {
-    "babel-cli": "^6.26.0"
+    "@babel/core": "^7.0.0-beta.56",
+    "@babel/node": "^7.0.0-beta.56"
   }
 }
