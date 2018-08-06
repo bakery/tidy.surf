@@ -1,3 +1,5 @@
+const debug = require('debug')('app');
+
 import express from 'express';
 import next from 'next';
 import { connect } from './api';
@@ -35,6 +37,6 @@ app.prepare().then(() => {
 
   server.listen(port, (err) => {
     if (err) throw err
-    console.log(`> Ready on http://localhost:${port}`)
+    debug(`> Ready on http://localhost:${port}`)
   })
 });

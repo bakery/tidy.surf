@@ -1,3 +1,5 @@
+const debug = require('debug')('tides');
+
 import request from 'request-promise-native';
 import moment from 'moment-timezone';
 
@@ -6,6 +8,8 @@ export default {
     if (!apiKey) {
       throw new Error('WORLD_TIDES api key missing');
     }
+
+    debug(`Getting tides for ${lat}, ${lon}`);
 
     const start = moment.utc().subtract(1, 'days').hour(0).minute(0).second(0).unix();
     

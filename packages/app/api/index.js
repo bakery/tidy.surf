@@ -1,4 +1,4 @@
-import { ApolloServer, gql } from 'apollo-server-express';
+import { ApolloServer } from 'apollo-server-express';
 import { schema, resolvers } from 'tides';
 
 // In the most basic sense, the ApolloServer can be started

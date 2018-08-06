@@ -1,9 +1,10 @@
+import React from 'react';
+import PropTypes from 'prop-types'
 import { graphql } from 'react-apollo'
 import gql from 'graphql-tag'
 
 function List ({
-  data: { loading, error, tides },
-  loadMorePosts
+  data: { error, tides },
 }) {
   if (error) {
     return <strong>Error</strong>;
@@ -13,7 +14,7 @@ function List ({
     return (
       <section>
         <ul>
-          {tides.map(({ dt, date, height, type }, index) => (
+          {tides.map(({ dt, date, height, type }) => (
             <li key={dt}>
               ({type}) - {height}m @ {date}
             </li>
@@ -25,6 +26,13 @@ function List ({
   
   return <div>Loading</div>
 }
+
+List.propTypes = {
+  data: PropTypes.shape({
+    error: PropTypes.object,
+    tide: PropTypes.array,
+  }),
+};
 
 export const allBooks = gql`
   query getTides($lat: Float!, $lon: Float!) {
