@@ -6,12 +6,16 @@
   },
   "devDependencies": {
     "babel-eslint": "^8.2.6",
+    "babel-jest": "^23.4.2",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-react": "^6.24.1",
     "eslint": "^5.3.0",
     "eslint-plugin-import": "^2.13.0",
     "eslint-plugin-jest": "^21.18.0",
     "eslint-plugin-jsx-a11y": "^6.1.1",
     "eslint-plugin-react": "^7.10.0",
     "eslint-plugin-standard": "^3.1.0",
+    "jest": "^23.4.2",
     "lerna": "^3.0.0-rc.0"
   },
   "eslintConfig": {
@@ -70,7 +74,8 @@
   "scripts": {
     "dev": "lerna bootstrap --scope app --scope tide && lerna run --parallel dev",
     "heroku-postbuild": "lerna bootstrap && lerna exec --scope app -- npm run build",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "test": "jest"
   },
   "dependencies": {
     "babel-cli": "^6.26.0",
