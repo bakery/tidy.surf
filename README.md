@@ -1,6 +1,6 @@
 # tidy.surf
 
-Before you begin:
+Before you begin
 
 ```
 npm install -g nodemon
