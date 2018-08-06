@@ -6,6 +6,22 @@
   version "1.6.0"
   resolved "https://registry.yarnpkg.com/@apollographql/graphql-playground-html/-/graphql-playground-html-1.6.0.tgz#15e1a042b97d6834e6d70b17cc73e1514fde9027"
 
+"@babel/cli@^7.0.0-beta.56":
+  version "7.0.0-beta.56"
+  resolved "https://registry.yarnpkg.com/@babel/cli/-/cli-7.0.0-beta.56.tgz#fba46b162ca2b7d36469e27cbb8da6e9a85f24c9"
+  dependencies:
+    commander "^2.8.1"
+    convert-source-map "^1.1.0"
+    fs-readdir-recursive "^1.0.0"
+    glob "^7.0.0"
+    lodash "^4.17.10"
+    mkdirp "^0.5.1"
+    output-file-sync "^2.0.0"
+    slash "^1.0.0"
+    source-map "^0.5.0"
+  optionalDependencies:
+    chokidar "^2.0.3"
+
 "@babel/code-frame@7.0.0-beta.42":
   version "7.0.0-beta.42"
   resolved "https://registry.yarnpkg.com/@babel/code-frame/-/code-frame-7.0.0-beta.42.tgz#a9c83233fa7cd06b39dc77adbb908616ff4f1962"
@@ -1574,7 +1590,7 @@ chalk@^2.0.0:
     escape-string-regexp "^1.0.5"
     supports-color "^5.3.0"
 
-chokidar@^2.0.2:
+chokidar@^2.0.2, chokidar@^2.0.3:
   version "2.0.4"
   resolved "https://registry.yarnpkg.com/chokidar/-/chokidar-2.0.4.tgz#356ff4e2b0e8e43e322d18a372460bbcf3accd26"
   dependencies:
@@ -2469,7 +2485,7 @@ glob-parent@^3.1.0:
     is-glob "^3.1.0"
     path-dirname "^1.0.0"
 
-glob@7.1.2, glob@^7.0.3, glob@^7.0.5, glob@^7.1.2:
+glob@7.1.2, glob@^7.0.0, glob@^7.0.3, glob@^7.0.5, glob@^7.1.2:
   version "7.1.2"
   resolved "https://registry.yarnpkg.com/glob/-/glob-7.1.2.tgz#c19c9df9a028702d678612384a6552404c636d15"
   dependencies:
