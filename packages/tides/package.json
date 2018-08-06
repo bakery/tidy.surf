@@ -4,15 +4,12 @@
   "description": "",
   "main": "dist",
   "scripts": {
-    "build": "babel src -s -D -d dist --ignore **/*.test.js --presets env",
-    "dev": "babel src -s -D -d dist --ignore **/*.test.js --presets env --watch",
+    "build": "babel src -s -D -d dist --ignore **/*.test.js --presets @babel/env",
+    "dev": "babel src -s -D -d dist --ignore **/*.test.js --presets @babel/env --watch",
     "prepublish": "npm run build"
   },
   "author": "",
   "license": "ISC",
-  "devDependencies": {
-    "babel-cli": "^6.26.0"
-  },
   "dependencies": {
     "debug": "^3.1.0",
     "graphql": "^0.13.2",
@@ -21,5 +18,10 @@
     "moment-timezone": "^0.5.21",
     "request": "^2.87.0",
     "request-promise-native": "^1.0.5"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.0.0-beta.56",
+    "@babel/core": "^7.0.0-beta.56",
+    "@babel/node": "^7.0.0-beta.56"
   }
 }
