@@ -17,6 +17,18 @@ app.prepare().then(() => {
 
   connect(server);
 
+  server.get('/tides/:citySlug-:stateSlug-:countrySlug', function (req, res) {
+    return app.render(
+      req,
+      res,
+      '/tides',
+      {
+        citySlug: req.params.citySlug,
+        countrySlug: req.params.countrySlug,
+      },
+    )
+  });
+
   server.get('*', (req, res) => {
     return handle(req, res)
   });
