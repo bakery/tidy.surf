@@ -1,12 +1,81 @@
 {
   "name": "tidy.surf",
   "private": true,
+  "engines": {
+    "node": ">=8.11.1"
+  },
   "devDependencies": {
+    "babel-eslint": "^8.2.6",
+    "babel-jest": "^23.4.2",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-react": "^6.24.1",
+    "eslint": "^5.3.0",
+    "eslint-plugin-import": "^2.13.0",
+    "eslint-plugin-jest": "^21.18.0",
+    "eslint-plugin-jsx-a11y": "^6.1.1",
+    "eslint-plugin-react": "^7.10.0",
+    "eslint-plugin-standard": "^3.1.0",
+    "jest": "^23.4.2",
     "lerna": "^3.0.0-rc.0"
   },
+  "eslintConfig": {
+    "parser": "babel-eslint",
+    "parserOptions": {
+      "sourceType": "module",
+      "allowImportExportEverywhere": true,
+      "ecmaFeatures": {
+        "jsx": true
+      }
+    },
+    "plugins": [
+      "standard",
+      "jest",
+      "react"
+    ],
+    "extends": [
+      "eslint:recommended",
+      "plugin:react/recommended"
+    ],
+    "globals": {
+      "server": false,
+      "browser": false,
+      "expect": false,
+      "process": false,
+      "global": false
+    },
+    "env": {
+      "jest/globals": true
+    },
+    "rules": {
+      "standard/object-curly-even-spacing": [
+        2,
+        "either"
+      ],
+      "standard/array-bracket-even-spacing": [
+        2,
+        "either"
+      ],
+      "standard/computed-property-even-spacing": [
+        2,
+        "even"
+      ],
+      "standard/no-callback-literal": [
+        2,
+        [
+          "cb",
+          "callback"
+        ]
+      ],
+      "no-console": [
+        "error"
+      ]
+    }
+  },
   "scripts": {
-    "dev": "lerna bootstrap --scope app --scope tide && lerna run --parallel dev",
-    "heroku-postbuild": "lerna bootstrap && lerna exec --scope app -- npm run build"
+    "dev": "lerna bootstrap --scope app --scope tides && lerna run --parallel dev",
+    "heroku-postbuild": "lerna bootstrap && lerna exec --scope app -- npm run build",
+    "lint": "eslint .",
+    "test": "jest"
   },
   "dependencies": {
     "babel-cli": "^6.26.0",

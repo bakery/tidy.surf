@@ -1,9 +1,11 @@
+import React from 'react'
+import PropTypes from 'prop-types'
 import initApollo from './init-apollo'
 import Head from 'next/head'
 import { getDataFromTree } from 'react-apollo'
 
 export default (App) => {
-  return class Apollo extends React.Component {
+  class Apollo extends React.Component {
     static displayName = 'withApollo(App)'
     static async getInitialProps (ctx) {
       const { Component, router } = ctx
@@ -57,4 +59,9 @@ export default (App) => {
       return <App {...this.props} apolloClient={this.apolloClient} />
     }
   }
+
+  Apollo.propTypes = {
+    apolloState: PropTypes.object
+  }
+  return Apollo
 }

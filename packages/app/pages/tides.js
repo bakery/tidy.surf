@@ -3,7 +3,6 @@ import React, { Component } from 'react'
 import List from '../components/List'
 import { spotsList } from '../lib/spots-list';
 
-
 export default class Tides extends Component {
   static getInitialProps ({
     query: {
