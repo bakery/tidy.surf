@@ -72,7 +72,7 @@
     }
   },
   "scripts": {
-    "dev": "lerna bootstrap --scope app --scope tide && lerna run --parallel dev",
+    "dev": "lerna bootstrap --scope app --scope tides && lerna run --parallel dev",
     "heroku-postbuild": "lerna bootstrap && lerna exec --scope app -- npm run build",
     "lint": "eslint .",
     "test": "jest"
