@@ -4,6 +4,7 @@ import _ from 'lodash';
 import React, { Component } from 'react'
 import PropTypes from 'prop-types';
 import List from '../components/List'
+import SpotLink from '../components/SpotLink';
 import { spotsList } from '../lib/spots-list';
 
 export default class Tides extends Component {
@@ -30,6 +31,11 @@ export default class Tides extends Component {
       <div>
         <h1>Tides in { city }, { state }, { country }</h1>
         <List />
+        <ul>
+          {
+            _.map(spotsList, (s, key) => <li key={key}><SpotLink countrySlug={s.countrySlug} citySlug={s.citySlug} state={s.state} /></li>)
+          }
+        </ul>
       </div>
     )
   }
