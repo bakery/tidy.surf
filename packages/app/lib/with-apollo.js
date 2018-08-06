@@ -1,3 +1,5 @@
+const debug = require('debug')('app');
+
 import React from 'react'
 import PropTypes from 'prop-types'
 import initApollo from './init-apollo'
@@ -33,7 +35,7 @@ export default (App) => {
           // Prevent Apollo Client GraphQL errors from crashing SSR.
           // Handle them in components via the data.error prop:
           // http://dev.apollodata.com/react/api-queries.html#graphql-query-data-error
-          console.error('Error while running `getDataFromTree`', error)
+          debug('Error while running `getDataFromTree`', error)
         }
 
         // getDataFromTree does not call componentWillUnmount

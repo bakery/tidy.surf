@@ -1,5 +1,8 @@
+const debug = require('debug')('app');
+
 import _ from 'lodash';
 import React, { Component } from 'react'
+import PropTypes from 'prop-types';
 import List from '../components/List'
 import { spotsList } from '../lib/spots-list';
 
@@ -16,7 +19,7 @@ export default class Tides extends Component {
   }
 
   render () {
-    console.log('spot', this.props.spot);
+    debug('spot', this.props.spot);
     const { spot } = this.props;
     if (_.isEmpty(spot)) {
       return (<div><h1>No spot available</h1></div>)
@@ -31,3 +34,11 @@ export default class Tides extends Component {
     )
   }
 }
+
+Tides.propTypes = {
+  spot: PropTypes.shape({
+    city: PropTypes.string.isRequired,
+    state: PropTypes.string.isRequired,
+    country: PropTypes.string.isRequired,
+  }).isRequired
+};
