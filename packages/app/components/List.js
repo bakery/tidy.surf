@@ -41,27 +41,6 @@ function List ({ spot }) {
       }}
     </Query>
   );
-
-
-  // if (error) {
-  //   return <strong>Error</strong>;
-  // }
-
-  // if (tides && tides.length) {
-  //   return (
-  //     <section>
-  //       <ul>
-  //         {tides.map(({ dt, date, height, type }) => (
-  //           <li key={dt}>
-  //             ({type}) - {height}m @ {date}
-  //           </li>
-  //         ))}
-  //       </ul>
-  //     </section>
-  //   )
-  // }
-  
-  // return <div>Loading</div>
 }
 
 List.propTypes = {
