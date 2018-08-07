@@ -1,57 +1,39 @@
-const debug = require('debug')('app');
-
 import _ from 'lodash';
 import React, { Component } from 'react'
 import PropTypes from 'prop-types';
-import { withRouter } from 'next/router'
-import List from '../components/List'
-import SpotLink from '../components/SpotLink';
-import { spotsList } from '../lib/spots-list';
+import Spot from '../ui/components/Spot'
+import ListOfSpots from '../ui/components/ListOfSpots';
 
-class Tides extends Component {
+export default class Tides extends Component {
   static getInitialProps ({
     query: {
       citySlug,
+      stateSlug,
       countrySlug,
     }
   }) {
     return {
-      spot: _.find(spotsList, { citySlug, countrySlug }) || {},
+      spotId: `${citySlug}-${stateSlug}-${countrySlug}`
     }
   }
 
-  render () {
-    debug('router', this.props.router);
+  render () { 
+    const { spotId } = this.props;
     
-    const { spot } = this.props;
-    if (_.isEmpty(spot)) {
+    if (_.isEmpty(spotId)) {
       return (<div><h1>No spot available</h1></div>)
     }
 
-    const { city, state, country } = spot;
     return (
       <div>
-        <h1>Tidez in { city }, { state }, { country }</h1>
-        <List spot={spot} />
-        <ul>
-          {
-            _.map(spotsList, (s, key) => (
-              <li key={key}><SpotLink countrySlug={s.countrySlug} citySlug={s.citySlug} stateSlug={s.stateSlug} /></li>
-            ))
-          }
-        </ul>
+        <Spot id={spotId} />
+        <ListOfSpots />
       </div>
     )
   }
 }
 
 Tides.propTypes = {
-  spot: PropTypes.shape({
-    city: PropTypes.string.isRequired,
-    state: PropTypes.string.isRequired,
-    country: PropTypes.string.isRequired,
-  }).isRequired,
-  router: PropTypes.object.isRequired,
+  spotId: PropTypes.string
 };
 
-export default withRouter(Tides);

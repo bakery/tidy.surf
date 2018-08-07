@@ -1,5 +1,3 @@
-const debug = require('debug')('app');
-
 import React from 'react';
 import PropTypes from 'prop-types'
 import { Query } from 'react-apollo'
@@ -16,11 +14,8 @@ export const getTides = gql`
   }
 `;
 
-function List ({ spot }) {
+export default function Tides ({ spot }) {
   const { lat, lon, timezone } = spot;
-
-  debug('pulling data for', lat, lon, timezone);
-
   return (
     <Query query={getTides} variables={{ lat, lon, timezone }}>
       {({ loading, error, data }) => {
@@ -43,7 +38,7 @@ function List ({ spot }) {
   );
 }
 
-List.propTypes = {
+Tides.propTypes = {
   spot: PropTypes.shape({
     lat: PropTypes.number.isRequired,
     lon: PropTypes.number.isRequired,
@@ -54,5 +49,3 @@ List.propTypes = {
     tides: PropTypes.array,
   }),
 };
-
-export default List;

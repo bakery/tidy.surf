@@ -1,3 +1,5 @@
+/* globals module: true */
+
 const withCss = require('@zeit/next-css')
 
 module.exports = withCss({

@@ -1,4 +1,4 @@
-export const spotsList = [
+export default [
   {
     city: 'Lisbon',
     state: 'Lisbon',

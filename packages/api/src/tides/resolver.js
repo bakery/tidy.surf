@@ -1,4 +1,4 @@
-import Tides from './lib/tides'
+import Tides from './tides'
 import moment from 'moment-timezone';
 
 export default {
