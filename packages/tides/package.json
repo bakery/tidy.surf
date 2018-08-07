@@ -4,8 +4,8 @@
   "description": "",
   "main": "dist",
   "scripts": {
-    "build": "babel src -s -D -d dist --ignore **/*.test.js --presets @babel/env",
-    "dev": "babel src -s -D -d dist --ignore **/*.test.js --presets @babel/env --watch",
+    "build": "../../node_modules/.bin/babel src -s -D -d dist --ignore **/*.test.js --presets @babel/env",
+    "dev": "../../node_modules/.bin/babel src -s -D -d dist --ignore **/*.test.js --presets @babel/env --watch",
     "prepublish": "npm run build"
   },
   "author": "",
