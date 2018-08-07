@@ -4,9 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon --exec \"babel-node server.js --presets @babel/env\"",
-    "build": "babel server.js api/**/*.js -s -D -d dist --ignore **/*.test.js --presets @babel/env && next build",
-    "start": "NODE_ENV=production node ./dist/server.js"
+    "dev": "node server.js",
+    "build": "next build",
+    "start": "NODE_ENV=production node ./server.js"
   },
   "author": "",
   "license": "ISC",

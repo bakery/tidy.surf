@@ -31,7 +31,7 @@ class Tides extends Component {
     const { city, state, country } = spot;
     return (
       <div>
-        <h1>Tides in { city }, { state }, { country }</h1>
+        <h1>Tidez in { city }, { state }, { country }</h1>
         <List spot={spot} />
         <ul>
           {
