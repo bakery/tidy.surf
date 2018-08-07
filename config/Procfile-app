@@ -1,1 +1,1 @@
-web: cd packages/app && npm run build && npm run start
+web: lerna exec --scope app -- npm start
