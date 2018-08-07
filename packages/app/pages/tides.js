@@ -32,7 +32,7 @@ class Tides extends Component {
     return (
       <div>
         <h1>Tides in { city }, { state }, { country }</h1>
-        <List />
+        <List spot={spot} />
         <ul>
           {
             _.map(spotsList, (s, key) => (

@@ -10,6 +10,6 @@ export default gql`
   }
 
   type Query {
-    tides(lat: Float!, lon: Float!, timeZone: String!): [Tide]
+    tides(lat: Float!, lon: Float!, timezone: String!): [Tide]
   }
 `;
