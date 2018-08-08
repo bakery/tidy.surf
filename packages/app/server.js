@@ -39,4 +39,13 @@ app.prepare().then(function whenAppIsReady() {
     if (err) throw err
     debug(`> Ready on http://localhost:${port}`)
   })
+
+  debug('Gonna sync search index')
+
+  // sync up search
+  API.resyncAllSearchIndices().then(function () {
+    debug('Search index synced OK')
+  }).catch(function (error) {
+    debug(`Failed to sync search index: ${error.message}`)
+  })
 });

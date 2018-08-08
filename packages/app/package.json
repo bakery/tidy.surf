@@ -30,6 +30,7 @@
     "react": "^16.4.2",
     "react-apollo": "^2.1.9",
     "react-dom": "^16.4.2",
+    "react-instantsearch": "^5.2.2",
     "semantic-ui-css": "^2.3.3",
     "semantic-ui-react": "^0.82.2",
     "url-loader": "^1.0.1"
