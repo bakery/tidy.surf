@@ -33,6 +33,7 @@
     "react-instantsearch": "^5.2.2",
     "semantic-ui-css": "^2.3.3",
     "semantic-ui-react": "^0.82.2",
+    "sitemap": "^1.13.0",
     "url-loader": "^1.0.1"
   }
 }
