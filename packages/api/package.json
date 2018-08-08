@@ -23,9 +23,6 @@
     "request-promise-native": "^1.0.5"
   },
   "devDependencies": {
-    "@babel/cli": "^7.0.0-beta.56",
-    "@babel/core": "^7.0.0-beta.56",
-    "@babel/node": "^7.0.0-beta.56",
     "express": "^4.16.3"
   }
 }
