@@ -80,7 +80,7 @@
     "test": "jest",
     "test-watch": "jest src --watchAll",
     "build-semantic": "cd packages/semantic/src/semantic && gulp build-css build-assets",
-    "watch-semantic": "cd packages/semantic/src/semantic && yarn run build-semantic && gulp watch"
+    "watch-semantic": "yarn run build-semantic && cd packages/semantic/src/semantic && gulp watch"
   },
   "devDependencies": {
     "gulp": "^3.9.1"
