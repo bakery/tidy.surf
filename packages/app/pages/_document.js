@@ -7,6 +7,7 @@ export default class MyDocument extends Document {
       <html>
         <Head>
           <link rel='stylesheet' href='/_next/static/style.css' />
+          <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/instantsearch.css@7.0.0/themes/algolia-min.css' />
         </Head>
         <body>
           <Main />
