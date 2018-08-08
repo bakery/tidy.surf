@@ -78,6 +78,11 @@
     "heroku-postbuild": "lerna bootstrap --scope $LERNA_SCOPE --include-filtered-dependencies && lerna exec --scope app -- npm run build",
     "lint": "eslint .",
     "test": "jest",
-    "test-watch": "jest src --watchAll"
+    "test-watch": "jest src --watchAll",
+    "build-semantic": "cd packages/app/semantic && gulp build-css build-assets",
+    "watch-semantic": "cd packages/app/semantic && yarn run build-semantic && gulp watch"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.1"
   }
 }
