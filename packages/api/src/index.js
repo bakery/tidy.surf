@@ -7,6 +7,8 @@ import TidesResolvers from './tides/resolver'
 import SpotsTypes from './spots/types'
 import SpotsResolvers from './spots/resolver'
 
+export { resyncAllSearchIndices } from './search/fixture'
+
 const mergedSchema = mergeSchemas({
   schemas: [
     makeExecutableSchema({ typeDefs: TidesTypes }),
@@ -30,3 +32,5 @@ const server = new ApolloServer({
 export function connect(app) {
   server.applyMiddleware({ app });
 }
+
+
