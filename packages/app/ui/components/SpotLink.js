@@ -33,7 +33,7 @@ SpotLink.propTypes = {
     country: PropTypes.string.isRequired,
     countrySlug: PropTypes.string.isRequired,
     citySlug: PropTypes.string.isRequired,
-    stateSlug: PropTypes.string.isRequired,  
+    stateSlug: PropTypes.string.isRequired,
   }).isRequired,
 }
 
