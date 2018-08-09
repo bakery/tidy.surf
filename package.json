@@ -74,6 +74,7 @@
     }
   },
   "scripts": {
+    "analyze": "lerna bootstrap --scope app --include-filtered-dependencies && lerna run analyze", 
     "dev": "lerna bootstrap --scope app --include-filtered-dependencies && lerna run --parallel dev",
     "heroku-postbuild": "lerna bootstrap --scope $LERNA_SCOPE --include-filtered-dependencies && lerna exec --scope app -- npm run build",
     "lint": "eslint .",

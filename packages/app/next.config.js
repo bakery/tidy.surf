@@ -1,6 +1,7 @@
 /* globals module: true */
 
 const withCss = require('@zeit/next-css')
+const { ANALYZE } = process.env
 
 module.exports = withCss({
   publicRuntimeConfig: {
@@ -9,7 +10,7 @@ module.exports = withCss({
       apiKey: process.env.ALGOLIA_SEARCH_KEY
     }
   },
-  webpack (config) {
+  webpack (config, { isServer }) {
     config.module.rules.push({
       test: /\.(png|svg|eot|otf|ttf|woff|woff2)$/,
       use: {
@@ -22,6 +23,15 @@ module.exports = withCss({
         }
       }
     })
+
+    if (ANALYZE) {
+      const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer')
+      config.plugins.push(new BundleAnalyzerPlugin({
+        analyzerMode: 'server',
+        analyzerPort: isServer ? 8888 : 8889,
+        openAnalyzer: true
+      }))
+    }
 
     return config
   }

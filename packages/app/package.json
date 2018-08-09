@@ -4,8 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "node server.js",
+    "analyze": "ANALYZE=1 next build",
     "build": "next build",
+    "dev": "node server.js",
     "start": "NODE_ENV=production node ./server.js"
   },
   "author": "",
@@ -13,7 +14,6 @@
   "dependencies": {
     "@zeit/next-css": "^0.2.0",
     "api": "1.0.0",
-    "semantic": "1.0.0",
     "apollo-boost": "^0.1.12",
     "apollo-client": "^2.3.7",
     "apollo-server": "^2.0.0",
@@ -32,8 +32,12 @@
     "react-apollo": "^2.1.9",
     "react-dom": "^16.4.2",
     "react-instantsearch": "^5.2.2",
+    "semantic": "1.0.0",
     "semantic-ui-react": "^0.82.2",
     "sitemap": "^1.13.0",
     "url-loader": "^1.0.1"
+  },
+  "devDependencies": {
+    "webpack-bundle-analyzer": "^2.13.1"
   }
 }
