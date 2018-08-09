@@ -1,0 +1,15 @@
+{
+  "name": "semantic",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "gulp build-css build-assets",
+    "prepublish": "npm run build"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "semantic-ui": "^2.3.3"
+  }
+}
