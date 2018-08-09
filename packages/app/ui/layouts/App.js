@@ -8,7 +8,7 @@ export default function AppLayout ({ children, title = 'Tidy Surf - Waves, winds
       <Head>
         <meta charSet="utf-8" /> 
         <meta name="viewport" content="width=device-width" />
-        <title>{ title }</title>
+        <title key="title">{ title }</title>
         <link rel="apple-touch-icon" sizes="57x57" href="/static/icons/apple-icon-57x57.png" />
         <link rel="apple-touch-icon" sizes="60x60" href="/static/icons/apple-icon-60x60.png" />
         <link rel="apple-touch-icon" sizes="72x72" href="/static/icons/apple-icon-72x72.png" />
