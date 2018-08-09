@@ -8,6 +8,7 @@ import {
   Configure,
   Pagination,
 } from 'react-instantsearch/dom';
+import AppLayout from '../ui/layouts/App'
 
 // resultsState={this.props.resultsState}
 // onSearchStateChange={this.props.onSearchStateChange}
@@ -29,7 +30,8 @@ HitComponent.propTypes = {
 export default function SearchPage() {
   const { appId, apiKey } = instantSearchSettings;
   return (
-    <InstantSearch
+    <AppLayout>
+      <InstantSearch
         appId={appId}
         apiKey={apiKey}
         indexName='Spots'
@@ -50,6 +52,7 @@ export default function SearchPage() {
         <footer>
           <Pagination />
         </footer>
-      </InstantSearch>   
+      </InstantSearch>
+    </AppLayout>
   );
 }

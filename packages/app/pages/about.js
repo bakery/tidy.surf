@@ -1,9 +1,10 @@
 import React from 'react'
 import { Modal, Header, Button, List, Icon } from 'semantic-ui-react'
+import AppLayout from '../ui/layouts/App'
 
 export default function AboutPage() {
   return (
-    <div>
+    <AppLayout>
       <Modal trigger={<Button>Show Modal</Button>}>
         <Modal.Header>Select a Photo</Modal.Header>
         <Modal.Content image>
@@ -34,6 +35,6 @@ export default function AboutPage() {
       </List>
 
       Hello <Icon name='world' />
-    </div>
+    </AppLayout>
   )
 }
