@@ -8,11 +8,6 @@ import Head from 'next/head'
 export default class Tides extends Component {
   constructor() {
     super();
-
-    this.state = {
-      title: 'Tides'
-    }
-
     this.renderContent = this.renderContent.bind(this);
   }
 
@@ -32,7 +27,7 @@ export default class Tides extends Component {
 
     return (
       <div>
-        <Spot setTitle={this.setTitle} id={spotId} />
+        <Spot id={spotId} />
         <ListOfSpots />
       </div>
     )
