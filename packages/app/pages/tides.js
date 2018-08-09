@@ -1,27 +1,20 @@
-import _ from 'lodash';
 import React, { Component } from 'react'
 import PropTypes from 'prop-types';
 import Spot from '../ui/components/Spot'
 import ListOfSpots from '../ui/components/ListOfSpots';
 
 export default class Tides extends Component {
-  static getInitialProps ({
-    query: {
-      citySlug,
-      stateSlug,
-      countrySlug,
-    }
-  }) {
+  static getInitialProps ({ query }) {
     return {
-      spotId: `${citySlug}-${stateSlug}-${countrySlug}`
+      spotId: query ? `${query.citySlug}-${query.stateSlug}-${query.countrySlug}` : null,
     }
   }
 
   render () { 
     const { spotId } = this.props;
-    
-    if (_.isEmpty(spotId)) {
-      return (<div><h1>No spot available</h1></div>)
+
+    if (!spotId) {
+      return (<ListOfSpots />)
     }
 
     return (
