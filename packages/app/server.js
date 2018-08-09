@@ -9,6 +9,7 @@ if (dev) {
 const debug = require('debug')('app')
 const path = require('path')
 const express = require('express')
+var compression = require('compression')
 const next = require('next')
 const API = require('api')
 const Sitemap = require('./sitemap')
@@ -18,7 +19,8 @@ const app = next({ dev })
 const handle = app.getRequestHandler()
 
 app.prepare().then(function whenAppIsReady() {
-  const server = express();
+  const server = express()
+  server.use(compression())
 
   API.connect(server)
   Sitemap.connect(server)

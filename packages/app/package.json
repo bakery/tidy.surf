@@ -18,6 +18,7 @@
     "apollo-client": "^2.3.7",
     "apollo-server": "^2.0.0",
     "apollo-server-express": "^2.0.0",
+    "compression": "^1.7.3",
     "debug": "^3.1.0",
     "dotenv": "^6.0.0",
     "express": "^4.16.3",
