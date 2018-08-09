@@ -23,7 +23,7 @@ app.prepare().then(function whenAppIsReady() {
   API.connect(server)
   Sitemap.connect(server)
 
-  server.use('/static', express.static(path.join(__dirname, '.next/static')));
+  server.use('_next/static', express.static(path.join(__dirname, 'dir/static')));
 
   server.get('/tides/:citySlug-:stateSlug-:countrySlug', function (req, res) {
     return app.render(
