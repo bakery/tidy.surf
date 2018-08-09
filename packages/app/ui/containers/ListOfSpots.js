@@ -2,7 +2,7 @@ import React from 'react';
 import _ from 'lodash';
 import { Query } from 'react-apollo'
 import gql from 'graphql-tag'
-import SpotLink from './SpotLink';
+import SpotLink from '../components/SpotLink';
 
 export const getSpots = gql`
   query getSpots {

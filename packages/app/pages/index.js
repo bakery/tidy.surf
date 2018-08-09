@@ -1,5 +1,4 @@
 import React from 'react'
-import Head from 'next/head'
 import AppLayout from '../ui/layouts/App'
 
 export default function IndexPage() {

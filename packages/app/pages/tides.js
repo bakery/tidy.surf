@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types';
-import Spot from '../ui/components/Spot'
-import ListOfSpots from '../ui/components/ListOfSpots';
+import Spot from '../ui/containers/Spot'
+import ListOfSpots from '../ui/containers/ListOfSpots';
 import AppLayout from '../ui/layouts/App'
 
 export default class Tides extends Component {
