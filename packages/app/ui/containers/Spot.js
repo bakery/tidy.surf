@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import { Query } from 'react-apollo'
 import gql from 'graphql-tag'
 import Tides from './Tides';
+import Head from 'next/head'
 
 export const getSpotById = gql`
   query getSpotById($id: ID!) {
@@ -31,6 +32,11 @@ export default function Spot ({ id }) {
 
         return spot ? (
           <div>
+            <Head>
+              <title key="title">Tides for {spot.city}</title>
+              <meta name="description" content={`${spot.city} tide timetables and charts for the next 10 days`} key="description" />
+              <meta name="keywords" content={`${spot.city} tide times,${spot.city} high tide,${spot.city} tide chart,${spot.city} tide tables,${spot.city} low tide`} key="keywords" />
+            </Head>
             <h1>{spot.city}, {spot.state}, {spot.country}</h1>
             <Tides spot={spot} />
           </div>
