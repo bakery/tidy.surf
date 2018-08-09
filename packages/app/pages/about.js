@@ -1,5 +1,4 @@
 import React from 'react'
-import 'semantic/dist/semantic.min.css';
 import { Modal, Header, Button, List, Icon } from 'semantic-ui-react'
 
 export default function AboutPage() {

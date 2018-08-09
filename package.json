@@ -74,10 +74,9 @@
     }
   },
   "scripts": {
-    "dev": "lerna bootstrap --scope app --scope api --scope semantic && lerna run --parallel dev",
+    "dev": "lerna bootstrap --scope app --include-filtered-dependencies && lerna run --parallel dev",
     "heroku-postbuild": "lerna bootstrap --scope $LERNA_SCOPE --include-filtered-dependencies && lerna exec --scope app -- npm run build",
     "lint": "eslint .",
-    "storybook": "lerna bootstrap --scope app && lerna exec --scope app -- npm run storybook",
     "test": "jest",
     "test-watch": "jest src --watchAll"
   }

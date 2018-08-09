@@ -1,4 +1,5 @@
 import React from 'react'
+import 'semantic/dist/semantic.min.css'
 import Document, { Head, Main, NextScript } from 'next/document'
 
 export default class MyDocument extends Document {
