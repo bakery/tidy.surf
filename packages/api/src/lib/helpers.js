@@ -1,0 +1,1 @@
+export const makeId = spot => spot && `${spot.citySlug}-${spot.stateSlug}-${spot.countrySlug}`
