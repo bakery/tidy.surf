@@ -3,11 +3,39 @@ export default `
     dt: Int!
     date: String!
     prettyTimeLabel: String!
+    day: Int!
+    month: Int!
+    year: Int!
     height: Float!
     type: String!
   }
 
-  type Query {
-    tides(lat: Float!, lon: Float!, timezone: String!): [Tide]
+  type CurrentTide {
+    type: String!
+    dt: Int!
+  }
+
+  type TideForecastBreakdown {
+    today: [Tide]
+    tomorow: [Tide]
+    allTides: [Tide]
+    currentTide: CurrentTide
+  }
+
+  type LocalTime {
+    timezone: String!
+    hours: Int!
+    minutes: Int!
+    prettyTimeLabel: String!
+  }
+
+  type TideForecast {
+    currentTime: LocalTime!
+    spot: Spot!
+    tides: TideForecastBreakdown!
+  }
+
+  extend type Query {
+    tides(spotId: ID!): TideForecast
   }
 `;

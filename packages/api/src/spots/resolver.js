@@ -1,7 +1,6 @@
 import Spots from './data'
 import _ from 'lodash'
-
-const makeId = spot => spot && `${spot.citySlug}-${spot.stateSlug}-${spot.countrySlug}`
+import { makeId } from '../lib/helpers';
 
 export default {
   Spot: {
