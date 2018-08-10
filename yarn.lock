@@ -62,7 +62,7 @@
     semver "^5.4.1"
     source-map "^0.5.0"
 
-"@babel/core@^7.0.0-rc.1":
+"@babel/core@^7.0.0-beta.56":
   version "7.0.0-rc.1"
   resolved "https://registry.yarnpkg.com/@babel/core/-/core-7.0.0-rc.1.tgz#53c84fd562e13325f123d5951184eec97b958204"
   dependencies:
