@@ -5,6 +5,8 @@ project_type: other
 trigger_map:
 - push_branch: master
   workflow: primary
+- push_branch: jest
+  workflow: primary
 workflows:
   primary:
     steps:
@@ -27,6 +29,7 @@ workflows:
             # debug log
             set -x
 
+            npm run bootstrap
             npm run lint
             npm test
     - heroku-deploy@0.9.3:

@@ -5,12 +5,11 @@
     "node": ">=8.11.1"
   },
   "dependencies": {
-    "@babel/cli": "^7.0.0-beta.56",
-    "@babel/core": "^7.0.0-beta.56",
-    "@babel/node": "^7.0.0-beta.56",
-    "@babel/preset-env": "^7.0.0-beta.56",
+    "@babel/cli": "^7.0.0-rc.1",
+    "@babel/core": "^7.0.0-rc.1",
+    "@babel/node": "^7.0.0-rc.1",
+    "@babel/preset-env": "^7.0.0-rc.1",
     "babel-eslint": "^8.2.6",
-    "babel-jest": "^23.4.2",
     "eslint": "^5.3.0",
     "eslint-plugin-import": "^2.13.0",
     "eslint-plugin-jest": "^21.18.0",
@@ -18,7 +17,8 @@
     "eslint-plugin-react": "^7.10.0",
     "eslint-plugin-standard": "^3.1.0",
     "jest": "^23.4.2",
-    "lerna": "^3.0.0-rc.0"
+    "lerna": "^3.0.0-rc.0",
+    "regenerator-runtime": "^0.12.1"
   },
   "eslintConfig": {
     "parser": "babel-eslint",
@@ -74,11 +74,12 @@
     }
   },
   "scripts": {
-    "analyze": "lerna bootstrap --scope app --include-filtered-dependencies && lerna run analyze", 
+    "analyze": "lerna bootstrap --scope app --include-filtered-dependencies && lerna run analyze",
+    "bootstrap": "lerna bootstrap",
     "dev": "lerna bootstrap --scope app --include-filtered-dependencies && lerna run --parallel dev",
     "heroku-postbuild": "lerna bootstrap --scope $LERNA_SCOPE --include-filtered-dependencies && lerna exec --scope app -- npm run build",
     "lint": "eslint .",
-    "test": "jest",
+    "test": "jest --verbose",
     "test-watch": "jest src --watchAll"
   }
 }
