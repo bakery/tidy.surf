@@ -12,7 +12,7 @@ export default `
     countrySlug: String!
   }
 
-  type Query {
+  extend type Query {
     spots: [Spot]
     spotById(id: ID!): Spot
   }

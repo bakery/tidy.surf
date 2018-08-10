@@ -7,7 +7,7 @@ export default `
     type: String!
   }
 
-  type Query {
+  extend type Query {
     tides(lat: Float!, lon: Float!, timezone: String!): [Tide]
   }
 `;
