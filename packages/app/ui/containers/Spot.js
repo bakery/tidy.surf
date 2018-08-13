@@ -37,7 +37,10 @@ export default function Spot ({ id }) {
               <meta name="description" content={`${spot.city} tide timetables and charts for the next 10 days`} key="description" />
               <meta name="keywords" content={`${spot.city} tide times,${spot.city} high tide,${spot.city} tide chart,${spot.city} tide tables,${spot.city} low tide`} key="keywords" />
             </Head>
-            <h1>{spot.city}, {spot.state}, {spot.country}</h1>
+            <div className="ui search">
+              <input className="prompt" type="text" placeholder={`${spot.city}, ${spot.state}, ${spot.country}`}/>
+            </div>
+            <h1></h1>
             <Tides spot={spot} />
           </div>
         ) : null;
