@@ -7,7 +7,7 @@
 --------------------*/
 
 @background: @white;
-@borderWidth: 1px;
+@borderWidth: 0px;
 @border: @borderWidth solid @borderColor;
 
 @boxShadow: @subtleShadow;

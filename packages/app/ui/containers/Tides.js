@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types'
 import { Query } from 'react-apollo'
 import gql from 'graphql-tag'
-import { Tab, Grid } from 'semantic-ui-react'
+import { Tab, Grid, Table, Container } from 'semantic-ui-react'
 import _ from 'lodash';
 
 export const getTides = gql`
@@ -62,7 +62,7 @@ export const getTides = gql`
 
 function renderPane(data, currentTide=null, currentTime=null) {
   return (
-    <Tab.Pane attached='bottom'>
+    <Tab.Pane  inverted color='blue' attached='bottom'>
       <style jsx>{`
         .highTide, .lowTide {
           text-align: center;
@@ -72,12 +72,20 @@ function renderPane(data, currentTide=null, currentTime=null) {
         }
 
         .lowTide {
-          padding-top: 100px
+          padding-top: 100px;
+        }
+
+        .currentTide {
+          position: absolute;
+        }
+
+        .prettyDate{
+          color: #000000;
         }
       `}</style>
       <section>
-        <p><b>{data[0].prettyDateTimeLabel} {currentTime ? currentTime.prettyTimeLabel : null}</b></p>
-        <p>
+        <p className="prettyDate"><b>{data[0].prettyDateTimeLabel} {currentTime ? currentTime.prettyTimeLabel : null}</b></p>
+        <p className="currentTide">
         {
           currentTide ? 
             currentTide.type === 'Rising' ? 
@@ -109,11 +117,11 @@ function renderTableTides(tides, key) {
     <React.Fragment key={key}>
     {
       _.map(tides, (t, k) => (
-        <tr key={k}>
-          <td>{t.prettyTimeLabel}</td>
-          <td>{t.height}</td>
-          <td>{t.type}</td>
-        </tr>
+        <Table.Row key={k}>
+          <Table.Cell>{t.prettyTimeLabel}</Table.Cell>
+          <Table.Cell>{t.height}</Table.Cell>
+          <Table.Cell>{t.type}</Table.Cell>
+        </Table.Row>
       ))
     }
     </React.Fragment>
@@ -123,10 +131,15 @@ function renderTableTides(tides, key) {
 function renderAllTidesPane(data) {
   const allDates = _.uniqBy(data, 'prettyDateTimeLabel');
   return (
-    <Tab.Pane attached='bottom'>
+    <Tab.Pane inverted color='blue' attached='bottom'>
       <style jsx>{`
-        dateTitle: {
-          margin-top: 40px!important;
+        .dateTitle {
+          margin-top: 28px;
+          color: #000000;
+        }
+
+        .dateTitle.firstDateTitle {
+          margin-top: 0px;
         }
       `}</style>
       <section>
@@ -134,21 +147,21 @@ function renderAllTidesPane(data) {
           _.map(allDates, (d, k) => {
             return (
               <div key={k}>
-                <h2 style={{marginTop: 40}} className="dateTitle">{d.prettyDateTimeLabel}</h2>
-                <table className="ui celled table unstackable">
-                  <thead>
-                    <tr>
-                      <th>Time</th>
-                      <th>Height</th>
-                      <th>Type</th>
-                    </tr>
-                  </thead>
-                  <tbody>
+                <p className={k === 0 ? 'firstDateTitle dateTitle' : 'dateTitle'}><b>{d.prettyDateTimeLabel}</b></p>
+                <Table basic='very' columns={3} textAlign="center" unstackable striped inverted>
+                  <Table.Header>
+                    <Table.Row>
+                      <Table.HeaderCell>Time</Table.HeaderCell>
+                      <Table.HeaderCell>Height</Table.HeaderCell>
+                      <Table.HeaderCell>Type</Table.HeaderCell>
+                    </Table.Row>
+                  </Table.Header>
+                  <Table.Body>
                     {
                       renderTableTides(_.filter(data, date => date.prettyDateTimeLabel === d.prettyDateTimeLabel), k)
                     }
-                  </tbody>
-                </table>
+                  </Table.Body>
+                </Table>
               </div>
             )
           })
@@ -158,12 +171,48 @@ function renderAllTidesPane(data) {
   )
 }
 
+function renderLoadingPane() {
+  return (
+    <Tab.Pane loading />
+  )
+}
+
 export default function Tides ({ spot }) {
   const { citySlug, stateSlug, countrySlug } = spot;
   return (
     <Query query={getTides} variables={{ spotId: `${citySlug}-${stateSlug}-${countrySlug}` }}>
       {({ loading, error, data }) => {
-        if (loading) return "Loading...";
+        if (loading) {
+          const panes = [
+            {
+              menuItem: 'Today',
+              render: () => renderLoadingPane(),
+            },
+            {
+              menuItem: 'Tomorrow',
+              render: () => renderLoadingPane(),
+            },
+            {
+              menuItem: '10 Days',
+              render: () => renderLoadingPane(),
+            }
+          ]
+          return (
+            <Container>
+              <Tab 
+                menu={{
+                  attached: 'top',
+                  secondary: true,
+                  pointing: true,
+                  borderless: true,
+                  widths: 3,
+                  fluid: true
+                }}
+                panes={panes}
+              />
+            </Container>
+          )
+        }
         if (error) return `Error! ${error.message}`;
 
         const {
@@ -191,7 +240,9 @@ export default function Tides ({ spot }) {
         ]
 
         return (
-          <Tab menu={{ borderless: true, attached: 'top' }} panes={panes} />
+          <Container>
+            <Tab menu={{ attached: 'top', secondary: true, pointing: true, borderless: true, widths: 3, fluid: true }} panes={panes} />
+          </Container>
         );
       }}
     </Query>

@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import { Query } from 'react-apollo'
 import gql from 'graphql-tag'
 import Tides from './Tides';
+import { Input, Container } from 'semantic-ui-react'
 import Head from 'next/head'
 
 export const getSpotById = gql`
@@ -37,10 +38,9 @@ export default function Spot ({ id }) {
               <meta name="description" content={`${spot.city} tide timetables and charts for the next 10 days`} key="description" />
               <meta name="keywords" content={`${spot.city} tide times,${spot.city} high tide,${spot.city} tide chart,${spot.city} tide tables,${spot.city} low tide`} key="keywords" />
             </Head>
-            <div className="ui search">
-              <input className="prompt" type="text" placeholder={`${spot.city}, ${spot.state}, ${spot.country}`}/>
-            </div>
-            <h1></h1>
+            <Container>
+              <Input icon='search' size='large' fluid placeholder='Search...' />
+            </Container>
             <Tides spot={spot} />
           </div>
         ) : null;
