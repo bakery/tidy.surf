@@ -5,63 +5,6 @@ export default function IndexPage() {
   return (
     <AppLayout>
       <div>
-        <style global jsx>{`
-          html, body {
-           font-family: 'Roboto', sans-serif;
-           background-color: #fff;
-           text-align: center;
-          }
-        `}</style>
-
-
-        <style jsx>{`
-          .outer {
-           display: table;
-           position: absolute;
-           height: 100%;
-           width: 100%;
-          }
-
-          .middle {
-           display: table-cell;
-           vertical-align: middle;
-          }
-
-          .inner {
-           margin-left: auto;
-           margin-right: auto; 
-           width: 100%;
-          }
-
-          h1 {
-           font-size: 50px; 
-           font-weight: 800;
-           margin: 30px
-          }
-
-          h2 {
-           font-size: 18px;
-           font-weight: 300;
-           margin: 0;
-           line-height: 1.5;
-          }
-
-          ul.app-stores {
-           list-style: none;
-           margin: 35px 0 0;
-           padding: 0;
-           font-size: 25px
-          }
-
-          ul.app-stores > li {
-           display: inline-block;
-           margin: 0 10px;
-          }
-
-          ul.app-stores > li > a {
-            color: #032E65;
-          }
-        `}</style>
         <div className="outer">
           <div className="middle">
             <div className="inner">

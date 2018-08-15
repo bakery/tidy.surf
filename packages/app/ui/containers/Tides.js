@@ -80,24 +80,14 @@ function renderTableTides(tides, key) {
 function renderAllTidesPane(data) {
   const allDates = _.uniqBy(data, 'prettyDateTimeLabel');
   return (
-    <Tab.Pane inverted color='blue' attached='bottom'>
-      <style jsx>{`
-        .dateTitle {
-          margin-top: 28px;
-          color: #000000;
-        }
-
-        .dateTitle.firstDateTitle {
-          margin-top: 0px;
-        }
-      `}</style>
+    <Tab.Pane attached='bottom'>
       <section>
         {
           _.map(allDates, (d, k) => {
             return (
               <div key={k}>
                 <p className={k === 0 ? 'firstDateTitle dateTitle' : 'dateTitle'}><b>{d.prettyDateTimeLabel}</b></p>
-                <Table basic='very' columns={3} textAlign="center" unstackable striped inverted>
+                <Table basic='very' columns={3} textAlign="center" unstackable striped>
                   <Table.Header>
                     <Table.Row>
                       <Table.HeaderCell>Time</Table.HeaderCell>
