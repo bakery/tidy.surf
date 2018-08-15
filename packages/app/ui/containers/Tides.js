@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types'
 import { Query } from 'react-apollo'
 import gql from 'graphql-tag'
-import { Tab, Grid, Table, Container } from 'semantic-ui-react'
+import { Tab, Table, Container } from 'semantic-ui-react'
 import TidePane from '../components/TidePane';
 import _ from 'lodash';
 
@@ -116,6 +116,10 @@ function renderLoadingPane() {
   )
 }
 
+function renderPane(data, currentTide=null, currentTime=null) {
+  return <TidePane data={data} currentTide={currentTide} currentTime={currentTime}/>
+}
+
 export default function Tides ({ spot }) {
   const { citySlug, stateSlug, countrySlug } = spot;
   return (
@@ -166,11 +170,11 @@ export default function Tides ({ spot }) {
         const panes = [
           {
             menuItem: 'Today',
-            render: () => <TidePane data={today} currentTide={currentTide} currentTime={currentTime}/>
+            render: () => renderPane(today, currentTide, currentTime)
           },
           {
             menuItem: 'Tomorrow',
-            render: () => <TidePane data={tomorrow}/>
+            render: () => renderPane(tomorrow)
           },
           {
             menuItem: '10 Days',
