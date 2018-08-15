@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import { Query } from 'react-apollo'
 import gql from 'graphql-tag'
 import { Tab, Grid, Table, Container } from 'semantic-ui-react'
+import TidePane from '../components/TidePane';
 import _ from 'lodash';
 
 export const getTides = gql`
@@ -59,58 +60,6 @@ export const getTides = gql`
     }
   }
 `;
-
-function renderPane(data, currentTide=null, currentTime=null) {
-  return (
-    <Tab.Pane  inverted color='blue' attached='bottom'>
-      <style jsx>{`
-        .highTide, .lowTide {
-          text-align: center;
-        }
-        .highTide {
-         padding-top: 50px;
-        }
-
-        .lowTide {
-          padding-top: 100px;
-        }
-
-        .currentTide {
-          position: absolute;
-        }
-
-        .prettyDate{
-          color: #000000;
-        }
-      `}</style>
-      <section>
-        <p className="prettyDate"><b>{data[0].prettyDateTimeLabel} {currentTime ? currentTime.prettyTimeLabel : null}</b></p>
-        <p className="currentTide">
-        {
-          currentTide ? 
-            currentTide.type === 'Rising' ? 
-              `${currentTide.type} ↑` :
-              `${currentTide.type} ↓`
-            : null
-        }
-        </p>
-        <Grid columns={data.length}>
-          <Grid.Row>
-            {data.map(({ dt, prettyTimeLabel, height, type }) => (
-              <Grid.Column key={dt}>
-                <div className={type === 'High' ? 'highTide' : 'lowTide'}>
-                  {prettyTimeLabel}
-                  <hr/>
-                  {height}m
-                </div>
-              </Grid.Column>
-            ))}
-          </Grid.Row>
-        </Grid>
-      </section>
-    </Tab.Pane>
-  )
-}
 
 function renderTableTides(tides, key) {
   return (
@@ -227,11 +176,11 @@ export default function Tides ({ spot }) {
         const panes = [
           {
             menuItem: 'Today',
-            render: () => renderPane(today, currentTide, currentTime),
+            render: () => <TidePane data={today} currentTide={currentTide} currentTime={currentTime}/>
           },
           {
             menuItem: 'Tomorrow',
-            render: () => renderPane(tomorrow),
+            render: () => <TidePane data={tomorrow}/>
           },
           {
             menuItem: '10 Days',
