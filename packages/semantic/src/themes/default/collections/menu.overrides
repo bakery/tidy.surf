@@ -1,3 +1,14 @@
 /*******************************
          Theme Overrides
 *******************************/
+
+/* Tabular Attached */
+.ui.attached.menu:not(.tabular) {
+  border-top: 0;
+  border-right: 0;
+  border-left: 0;
+}
+
+.ui.attached.item.menu {
+  margin: 0 !important;
+}

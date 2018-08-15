@@ -5,6 +5,7 @@ import ListOfSpots from '../ui/containers/ListOfSpots';
 import AppLayout from '../ui/layouts/App'
 import Head from 'next/head'
 
+
 export default class Tides extends Component {
   constructor() {
     super();

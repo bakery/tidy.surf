@@ -6,6 +6,7 @@ export default `
     day: Int!
     month: Int!
     year: Int!
+    prettyDateTimeLabel: String!
     height: Float!
     type: String!
   }
@@ -17,7 +18,7 @@ export default `
 
   type TideForecastBreakdown {
     today: [Tide]
-    tomorow: [Tide]
+    tomorrow: [Tide]
     allTides: [Tide]
     currentTide: CurrentTide
   }

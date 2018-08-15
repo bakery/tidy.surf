@@ -10,9 +10,9 @@ export default {
       const { timeZone, spotId } = variableValues;
       if (spotId) {
         const spot = _.find(Spots, s => spotId === makeId(s));
-        return moment(root.date).tz(spot.timezone).format('HH:mm');
+        return moment(root.date).tz(spot.timezone).format('LT');
       }
-      return moment(root.date).tz(timeZone).format('HH:mm');
+      return moment(root.date).tz(timeZone).format('LT');
     }
   },
   Query: {
@@ -28,18 +28,21 @@ export default {
         timezone: spot.timezone,
         hours: spotTimezone.hours(),
         minutes: spotTimezone.minutes(),
-        prettyTimeLabel: spotTimezone.format('HH:mm'),
+        prettyTimeLabel: spotTimezone.format('LT'),
       }
 
       return Tides.getTides(spot.lat, spot.lon).then(allTides => {
         const formattedTides = _.map(allTides, t => Object.assign({}, t, {
-          day: moment(t.date).utc().date(),
-          month: moment(t.date).utc().month() + 1,
-          year: moment(t.date).utc().year(),
+          day: moment(t.date).date(),
+          month: moment(t.date).month() + 1,
+          year: moment(t.date).year(),
+          prettyDateTimeLabel: moment(t.date).tz(spot.timezone).format('ddd, MMM D'),
         }));
 
-        const today = _.filter(formattedTides, t => spotTimezone.utc().date() - moment(t.date).utc().date() === 0);
-        const tomorrow = _.filter(formattedTides, t => spotTimezone.utc().date() - moment(t.date).utc().date() === -1);
+        const today = _.filter(formattedTides, t => spotTimezone.date() - moment(t.date).tz(spot.timezone).date() === 0);
+        // console.log('today', today);
+        const tomorrow = _.filter(formattedTides, t => spotTimezone.date() - moment(t.date).tz(spot.timezone).date() === -1);
+        // console.log('tomorrow', tomorrow);
         const currentTide = {
           dt: moment().utc().unix(),
         }
@@ -57,9 +60,10 @@ export default {
         const tides = {
           today,
           tomorrow,
-          allTides: _.filter(formattedTides, t => spotTimezone.utc().date() - moment(t.date).utc().date() < -1),
+          allTides: _.filter(formattedTides, t => spotTimezone.date() - moment(t.date).tz(spot.timezone).date() < -1),
           currentTide,
         }
+
         return { spot, currentTime, tides }
       });
     },
