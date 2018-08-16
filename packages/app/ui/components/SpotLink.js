@@ -19,7 +19,7 @@ class SpotLink extends Component {
         as={`/tides/${id}`} 
         href={`/tides?citySlug=${citySlug}&stateSlug=${stateSlug}&countrySlug=${countrySlug}`}
       >
-        <a>Tides in {city}, {state}, {country}</a>
+        <a>{city}, {state}, {country}</a>
       </Link>
     );
   }
