@@ -68,7 +68,7 @@ function renderTableTides(tides, key) {
       _.map(tides, (t, k) => (
         <Table.Row key={k}>
           <Table.Cell>{t.prettyTimeLabel}</Table.Cell>
-          <Table.Cell>{t.height}</Table.Cell>
+          <Table.Cell>{t.height}m</Table.Cell>
           <Table.Cell>{t.type}</Table.Cell>
         </Table.Row>
       ))
