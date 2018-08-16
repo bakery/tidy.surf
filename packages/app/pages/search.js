@@ -1,15 +1,14 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import { InstantSearch, instantSearchSettings } from '../lib/instant-search'
 import {
   RefinementList,
   SearchBox,
-  Hits,
   Configure,
   Pagination,
 } from 'react-instantsearch/dom';
+import { connectHits } from 'react-instantsearch-dom';
 import SpotLink from '../ui/components/SpotLink';
-import { Container } from 'semantic-ui-react'
+import { Container, Grid } from 'semantic-ui-react'
 import AppLayout from '../ui/layouts/App'
 
 // resultsState={this.props.resultsState}
@@ -17,17 +16,19 @@ import AppLayout from '../ui/layouts/App'
 // searchState={this.props.searchState}
 // createURL={this.props.createURL}
 
-const HitComponent = ({ hit }) => (
-  <div className="hit">
-    <div className="hit-content">
-      <SpotLink spot={Object.assign({}, hit, { id: hit.objectID })} />
-    </div>
-  </div>
-);
-
-HitComponent.propTypes = {
-  hit: PropTypes.object
-}
+const CustomHits = connectHits(({ hits }) => (
+  <Grid>
+    <Grid.Row>
+    {hits.map(hit =>
+      <Grid.Column key={hit.objectID} mobile={16} tablet={8} computer={4}>
+        <div className="ais-Hits-item">
+          <SpotLink spot={Object.assign({}, hit, { id: hit.objectID })} />
+        </div>
+      </Grid.Column>
+    )}
+    </Grid.Row>
+  </Grid>
+))
 
 export default function SearchPage() {
   const { appId, apiKey } = instantSearchSettings;
@@ -49,7 +50,7 @@ export default function SearchPage() {
               <RefinementList attribute="category" />
             </menu>
             <results>
-              <Hits hitComponent={HitComponent} />
+             <CustomHits />
             </results>
           </content>
           <footer>
