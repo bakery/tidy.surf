@@ -20,7 +20,7 @@ import AppLayout from '../ui/layouts/App'
 const HitComponent = ({ hit }) => (
   <div className="hit">
     <div className="hit-content">
-      <SpotLink spot={hit} />
+      <SpotLink spot={Object.assign({}, hit, { id: hit.objectID })} />
     </div>
   </div>
 );
