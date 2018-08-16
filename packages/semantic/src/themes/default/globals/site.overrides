@@ -5,6 +5,11 @@
 html, body {
  font-family: 'Roboto', sans-serif;
  background-color: #fff;
+ height: 100%;
+}
+
+#__next, .layoutWrap {
+  height: 100%;
 }
 
 .outer {
