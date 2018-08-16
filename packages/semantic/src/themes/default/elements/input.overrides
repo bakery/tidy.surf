@@ -1,3 +1,174 @@
 /*******************************
          Theme Overrides
 *******************************/
+
+/* Algolia Search bar */
+
+/*--------------------
+        Inputs
+---------------------*/
+
+.ais-SearchBox.ui.input {
+  position: relative;
+  font-weight: @normal;
+  font-style: normal;
+  display: inline-flex;
+  color: @inputColor;
+}
+
+.ais-SearchBox.ui.input .ais-SearchBox-input {
+  margin: 0em;
+  max-width: 100%;
+  flex: 1 0 auto;
+  outline: none;
+  -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+  text-align: @textAlign;
+  line-height: @lineHeight;
+
+  font-family: @inputFont;
+  padding: @padding;
+
+  background: @background;
+  border: @border;
+  color: @inputColor;
+  border-radius: @borderRadius;
+  transition: @transition;
+
+  box-shadow: @boxShadow;
+}
+
+/*--------------------
+      Placeholder
+---------------------*/
+
+/* browsers require these rules separate */
+
+.ais-SearchBox.ui.input .ais-SearchBox-input::-webkit-input-placeholder {
+  color: @placeholderColor;
+}
+.ais-SearchBox.ui.input .ais-SearchBox-input::-moz-placeholder {
+  color: @placeholderColor;
+}
+.ais-SearchBox.ui.input .ais-SearchBox-input:-ms-input-placeholder {
+  color: @placeholderColor;
+}
+
+/*--------------------
+        Disabled
+---------------------*/
+
+.ais-SearchBox.ui.disabled.input,
+.ais-SearchBox.ui.input:not(.disabled) input[disabled] {
+  opacity: @disabledOpacity;
+}
+
+.ais-SearchBox.ui.disabled.input .ais-SearchBox-input,
+.ais-SearchBox.ui.input:not(.disabled) input[disabled] {
+  pointer-events: none;
+}
+
+/*--------------------
+        Active
+---------------------*/
+
+.ais-SearchBox.ui.input .ais-SearchBox-input:active,
+.ais-SearchBox.ui.input.down input {
+  border-color: @downBorderColor;
+  background: @downBackground;
+  color: @downColor;
+  box-shadow: @downBoxShadow;
+}
+
+/*--------------------
+        Focus
+---------------------*/
+
+.ais-SearchBox.ui.input.focus .ais-SearchBox-input,
+.ais-SearchBox.ui.input .ais-SearchBox-input:focus  {
+  border-color: @focusBorderColor;
+  background: @focusBackground;
+  color: @focusColor;
+  box-shadow: @focusBoxShadow;
+}
+.ais-SearchBox.ui.input.focus .ais-SearchBox-input::-webkit-input-placeholder,
+.ais-SearchBox.ui.input .ais-SearchBox-input:focus::-webkit-input-placeholder {
+  color: @placeholderFocusColor;
+}
+.ais-SearchBox.ui.input.focus .ais-SearchBox-input::-moz-placeholder,
+.ais-SearchBox.ui.input .ais-SearchBox-input:focus::-moz-placeholder {
+  color: @placeholderFocusColor;
+}
+.ais-SearchBox.ui.input.focus .ais-SearchBox-input:-ms-input-placeholder,
+.ais-SearchBox.ui.input .ais-SearchBox-input:focus:-ms-input-placeholder {
+  color: @placeholderFocusColor;
+}
+
+/*--------------------
+         Icon
+---------------------*/
+
+.ais-SearchBox.ui.input .ais-SearchBox-submit {
+  cursor: default;
+  position: absolute;
+  line-height: 1;
+  text-align: center;
+  top: 0px;
+  right: 0px;
+  margin: 0em;
+  height: 100%;
+  left: auto;
+
+  width: @iconWidth;
+  opacity: @iconOpacity;
+  border-radius: 0em @borderRadius @borderRadius 0em;
+  transition: @iconTransition;
+  -webkit-transform: none;
+  transform: none;
+  outline: none;
+}
+
+/*--------------------
+        Fluid
+---------------------*/
+
+.ais-SearchBox.ui.fluid.input {
+  display: flex;
+}
+
+.ais-SearchBox.ui.input .ais-SearchBox-form {
+  width: 100%;
+}
+
+/*--------------------
+        Size
+---------------------*/
+
+.ais-SearchBox.ui.mini.input .ais-SearchBox-input {
+  font-size: @relativeMini;
+}
+.ais-SearchBox.ui.small.input .ais-SearchBox-input {
+  font-size: @relativeSmall;
+}
+.ais-SearchBox.ui.input .ais-SearchBox-input {
+  font-size: @relativeMedium;
+}
+.ais-SearchBox.ui.large.input .ais-SearchBox-input {
+  font-size: @relativeLarge;
+}
+.ais-SearchBox.ui.big.input .ais-SearchBox-input {
+  font-size: @relativeBig;
+}
+.ais-SearchBox.ui.huge.input .ais-SearchBox-input {
+  font-size: @relativeHuge;
+}
+.ais-SearchBox.ui.massive.input .ais-SearchBox-input {
+  font-size: @relativeMassive;
+}
+
+/*--------------------
+      Reset Button
+---------------------*/
+
+.ais-SearchBox.ui.input .ais-SearchBox-reset {
+  display: none;
+}

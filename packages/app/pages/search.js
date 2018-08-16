@@ -8,6 +8,8 @@ import {
   Configure,
   Pagination,
 } from 'react-instantsearch/dom';
+import SpotLink from '../ui/components/SpotLink';
+import { Container } from 'semantic-ui-react'
 import AppLayout from '../ui/layouts/App'
 
 // resultsState={this.props.resultsState}
@@ -18,7 +20,7 @@ import AppLayout from '../ui/layouts/App'
 const HitComponent = ({ hit }) => (
   <div className="hit">
     <div className="hit-content">
-      {hit.city}, {hit.state}, {hit.country}
+      <SpotLink spot={Object.assign({}, hit, { id: hit.objectID })} />
     </div>
   </div>
 );
@@ -31,28 +33,30 @@ export default function SearchPage() {
   const { appId, apiKey } = instantSearchSettings;
   return (
     <AppLayout>
-      <InstantSearch
-        appId={appId}
-        apiKey={apiKey}
-        indexName='Spots'
-      >
-        <Configure hitsPerPage={12} />
-        <header>
-          <h1>Look for spots</h1>
-          <SearchBox />
-        </header>
-        <content>
-          <menu>
-            <RefinementList attribute="category" />
-          </menu>
-          <results>
-            <Hits hitComponent={HitComponent} />
-          </results>
-        </content>
-        <footer>
-          <Pagination />
-        </footer>
-      </InstantSearch>
+      <Container>
+        <InstantSearch
+          appId={appId}
+          apiKey={apiKey}
+          indexName='Spots'
+        >
+          <Configure hitsPerPage={12} />
+          <header>
+            <h1>Look for spots</h1>
+            <SearchBox className="ui input fluid large" />
+          </header>
+          <content>
+            <menu>
+              <RefinementList attribute="category" />
+            </menu>
+            <results>
+              <Hits hitComponent={HitComponent} />
+            </results>
+          </content>
+          <footer>
+            <Pagination />
+          </footer>
+        </InstantSearch>
+      </Container>
     </AppLayout>
   );
 }
