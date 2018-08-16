@@ -82,3 +82,14 @@ section .dateTitle {
 section .dateTitle.firstDateTitle {
   margin-top: 0px;
 }
+
+footer {
+  padding: 15px;
+}
+
+/* HITS */
+
+.ui.grid .ais-Hits-item {
+  width: 100%;
+  margin-left: 0;
+}
