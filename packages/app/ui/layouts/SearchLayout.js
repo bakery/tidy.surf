@@ -1,7 +1,9 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import Head from 'next/head'
-import { Icon, Menu, Segment, Sidebar, Container } from 'semantic-ui-react'
+import MetaComponent from '../components/MetaComponent';
+import SideBar from '../components/SideBar';
+import SideBarStateHandler from '../components/SideBarStateHandler';
+import { Icon, Container } from 'semantic-ui-react'
 import { InstantSearch, instantSearchSettings } from '../../lib/instant-search'
 import {
   SearchBox,
@@ -9,124 +11,43 @@ import {
   Pagination,
 } from 'react-instantsearch/dom';
 
-export default class AppLayout extends React.Component {
-  constructor(props) {
-    super(props);
-  
-    this.state = { visible: false };
-
-    this.handleButtonClick = this.handleButtonClick.bind(this);
-    this.handleSidebarHide = this.handleSidebarHide.bind(this);
-  }
-
-  handleButtonClick() {
-    this.setState({ visible: !this.state.visible })
-  }
-
-  handleSidebarHide() {
-    this.setState({ visible: false })
-  }
-
+export default class AppLayout extends SideBarStateHandler {
   render() {
     const { children, title } = this.props;
     const { appId, apiKey } = instantSearchSettings;
     return (
       <div className="layoutWrap">
-        <Head>
-          <meta charSet="utf-8" /> 
-          <meta name="viewport" content="width=device-width initial-scale=1, maximum-scale=1" />
-          <title key="title">{ title }</title>
-          <link rel="apple-touch-icon" sizes="57x57" href="/static/icons/apple-icon-57x57.png" />
-          <link rel="apple-touch-icon" sizes="60x60" href="/static/icons/apple-icon-60x60.png" />
-          <link rel="apple-touch-icon" sizes="72x72" href="/static/icons/apple-icon-72x72.png" />
-          <link rel="apple-touch-icon" sizes="76x76" href="/static/icons/apple-icon-76x76.png" />
-          <link rel="apple-touch-icon" sizes="114x114" href="/static/icons/apple-icon-114x114.png" />
-          <link rel="apple-touch-icon" sizes="120x120" href="/static/icons/apple-icon-120x120.png" />
-          <link rel="apple-touch-icon" sizes="144x144" href="/static/icons/apple-icon-144x144.png" />
-          <link rel="apple-touch-icon" sizes="152x152" href="/static/icons/apple-icon-152x152.png" />
-          <link rel="apple-touch-icon" sizes="180x180" href="/static/icons/apple-icon-180x180.png" />
-          <link rel="icon" type="image/png" sizes="192x192"  href="/static/icons/android-icon-192x192.png" />
-          <link rel="icon" type="image/png" sizes="32x32" href="/static/icons/favicon-32x32.png" />
-          <link rel="icon" type="image/png" sizes="96x96" href="/static/icons/favicon-96x96.png" />
-          <link rel="icon" type="image/png" sizes="16x16" href="/static/icons/favicon-16x16.png" />
-          <link rel="manifest" href="/manifest.json" />
-          <meta name="msapplication-TileColor" content="#ffffff" />
-          <meta name="msapplication-TileImage" content="/ms-icon-144x144.png" />
-          <meta name="theme-color" content="#ffffff" />
-          <meta property="og:type" content="website" />
-          <meta property="og:title" content="Tidy Surf - Waves, winds and tides 🏄" />
-          <meta property="og:description" content="Tidy Surf is a surf forecast app for iPhone and Android. 100+ spots around the world 🌊" />
-          <meta property="og:url" content="http://tidy.surf" />
-          <meta property="og:image" content="http://tidy.surf/static/tidy-logo.png" />
-          <meta name="twitter:card" content="app" />
-          <meta name="twitter:site" content="http://tidy.surf/" />
-          <meta name="twitter:description" content="Tidy Surf is a surf forecast app for iPhone and Android. 100+ spots around the world 🌊" />
-          <meta name="twitter:app:name:iphone" content="Tidy Surf - Waves, winds and tides 🏄" />
-          <meta name="twitter:app:id:iphone" content="1230095824" />
-          <meta name="twitter:app:name:ipad" content="Tidy Surf - Waves, winds and tides 🏄" />
-          <meta name="twitter:app:id:ipad" content="" />
-          <meta name="twitter:app:name:googleplay" content="Tidy Surf - Waves, winds and tides 🏄" />
-          <meta name="twitter:app:id:googleplay" content="com.tidy" />
-          <meta name="twitter:image" content="http://tidy.surf/static/tidy-logo.png" />
-          <script src="https://use.fontawesome.com/59b60adebe.js"></script>
-          <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" />
-        </Head>
-
-        <Sidebar.Pushable as={Segment}>
-          <Sidebar
-            as={Menu}
-            animation='overlay'
-            icon='labeled'
-            onHide={this.handleSidebarHide}
-            vertical
-            visible={this.state.visible}
-            width='thin'
-          >
-            <Menu.Item as='a' href='/'>
-              <Icon name='home' />
-              Home
-            </Menu.Item>
-            <Menu.Item as='a' href='/tides'>
-              <Icon name='tint' />
-              Tides
-            </Menu.Item>
-            <Menu.Item as='a' href='/search'>
-              <Icon name='search' />
-              Search
-            </Menu.Item>
-            <Menu.Item as='a' onClick={this.handleButtonClick}>
-              <Icon name='close' />
-              Close
-            </Menu.Item>
-          </Sidebar>
-
-          <Sidebar.Pusher>
-            <Container>
-              <InstantSearch
-                appId={appId}
-                apiKey={apiKey}
-                indexName='Spots'
-              >
-                <Configure hitsPerPage={12} />
-                <header>
-                  <h1>Look for spots</h1>
-                  <div className="searchBoxWrap">
-                    <SearchBox className="ui input fluid large" />
-                    <div className="sidebarButton">
-                      <Icon color='grey' link name='bars' onClick={this.handleButtonClick} />
-                    </div>
+        <MetaComponent title={title} />
+        <SideBar
+          handleButtonClick={this.handleButtonClick}
+          handleSidebarHide={this.handleSidebarHide}
+          visible={this.state.visible}
+        >
+          <Container>
+            <InstantSearch
+              appId={appId}
+              apiKey={apiKey}
+              indexName='Spots'
+            >
+              <Configure hitsPerPage={12} />
+              <header>
+                <h1>Look for spots</h1>
+                <div className="searchBoxWrap">
+                  <SearchBox className="ui input fluid large" />
+                  <div className="sidebarButton">
+                    <Icon color='grey' link name='bars' onClick={this.handleButtonClick} />
                   </div>
-                </header>
-                <content>
-                  {children}
-                </content>
-                <footer>
-                  <Pagination />
-                </footer>
-              </InstantSearch>
-            </Container>
-          </Sidebar.Pusher>
-        </Sidebar.Pushable>
+                </div>
+              </header>
+              <content>
+                {children}
+              </content>
+              <footer>
+                <Pagination />
+              </footer>
+            </InstantSearch>
+          </Container>
+        </SideBar>
       </div>
     )
   }
