@@ -6,6 +6,7 @@ class SpotLink extends Component {
   render() {
     const {
       id,
+      objectID,
       city,
       state,
       country,
@@ -16,10 +17,10 @@ class SpotLink extends Component {
 
     return (
       <Link 
-        as={`/tides/${id}`} 
+        as={`/tides/${id || objectID}`} 
         href={`/tides?citySlug=${citySlug}&stateSlug=${stateSlug}&countrySlug=${countrySlug}`}
       >
-        <a>Tides in {city}, {state}, {country}</a>
+        <a>{city}, {state}, {country}</a>
       </Link>
     );
   }
@@ -27,7 +28,8 @@ class SpotLink extends Component {
 
 SpotLink.propTypes = {
   spot: PropTypes.shape({
-    id: PropTypes.string.isRequired,
+    id: PropTypes.string,
+    objectID: PropTypes.string,
     city: PropTypes.string.isRequired,
     state: PropTypes.string.isRequired,
     country: PropTypes.string.isRequired,
