@@ -1,8 +1,13 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Head from 'next/head'
-import Link from 'next/link'
-import { Icon, Menu, Segment, Sidebar, Container, Input } from 'semantic-ui-react'
+import { Icon, Menu, Segment, Sidebar, Container } from 'semantic-ui-react'
+import { InstantSearch, instantSearchSettings } from '../../lib/instant-search'
+import {
+  SearchBox,
+  Configure,
+  Pagination,
+} from 'react-instantsearch/dom';
 
 export default class AppLayout extends React.Component {
   constructor(props) {
@@ -24,6 +29,7 @@ export default class AppLayout extends React.Component {
 
   render() {
     const { children, title } = this.props;
+    const { appId, apiKey } = instantSearchSettings;
     return (
       <div className="layoutWrap">
         <Head>
@@ -65,6 +71,7 @@ export default class AppLayout extends React.Component {
           <script src="https://use.fontawesome.com/59b60adebe.js"></script>
           <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" />
         </Head>
+
         <Sidebar.Pushable as={Segment}>
           <Sidebar
             as={Menu}
@@ -94,21 +101,32 @@ export default class AppLayout extends React.Component {
           </Sidebar>
 
           <Sidebar.Pusher>
-            <header>
-              <Container>
-                <div className="searchBoxWrap">
-                  <Input icon='search' size='large' fluid placeholder='Search...' />
-                  <div className="sidebarButton">
-                    <Icon color='grey' link name='bars' onClick={this.handleButtonClick} />
+            <Container>
+              <InstantSearch
+                appId={appId}
+                apiKey={apiKey}
+                indexName='Spots'
+              >
+                <Configure hitsPerPage={12} />
+                <header>
+                  <h1>Look for spots</h1>
+                  <div className="searchBoxWrap">
+                    <SearchBox className="ui input fluid large" />
+                    <div className="sidebarButton">
+                      <Icon color='grey' link name='bars' onClick={this.handleButtonClick} />
+                    </div>
                   </div>
-                </div>
-              </Container>
-            </header>
-            {children}
+                </header>
+                <content>
+                  {children}
+                </content>
+                <footer>
+                  <Pagination />
+                </footer>
+              </InstantSearch>
+            </Container>
           </Sidebar.Pusher>
         </Sidebar.Pushable>
-
-        <footer>Footer</footer>
       </div>
     )
   }

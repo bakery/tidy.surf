@@ -87,3 +87,14 @@ section .dateTitle {
 section .dateTitle.firstDateTitle {
   margin-top: 0px;
 }
+
+/* ICON */
+.searchBoxWrap {
+  position: relative;
+}
+
+.sidebarButton {
+  position: absolute;
+  top: 11.5px;
+  left: 15px;
+}

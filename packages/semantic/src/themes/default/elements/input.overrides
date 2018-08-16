@@ -16,7 +16,8 @@
   color: @inputColor;
 }
 
-.ais-SearchBox.ui.input .ais-SearchBox-input {
+.ais-SearchBox.ui.input .ais-SearchBox-input,
+.ui.input > input{
   margin: 0em;
   max-width: 100%;
   flex: 1 0 auto;
@@ -26,7 +27,7 @@
   line-height: @lineHeight;
 
   font-family: @inputFont;
-  padding: @padding;
+  padding: 10px 15px 10px 50px;
 
   background: @background;
   border: @border;

@@ -38,9 +38,6 @@ export default function Spot ({ id }) {
               <meta name="description" content={`${spot.city} tide timetables and charts for the next 10 days`} key="description" />
               <meta name="keywords" content={`${spot.city} tide times,${spot.city} high tide,${spot.city} tide chart,${spot.city} tide tables,${spot.city} low tide`} key="keywords" />
             </Head>
-            <Container>
-              <Input icon='search' size='large' fluid placeholder='Search...' />
-            </Container>
             <Tides spot={spot} />
           </div>
         ) : null;
