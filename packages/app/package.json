@@ -29,6 +29,7 @@
     "lodash": "^4.17.10",
     "next": "latest",
     "prop-types": "^15.6.2",
+    "qs": "^6.5.2",
     "react": "^16.4.2",
     "react-apollo": "^2.1.9",
     "react-dom": "^16.4.2",
