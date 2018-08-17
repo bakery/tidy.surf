@@ -109,3 +109,7 @@ footer {
   width: 100%;
   margin-left: 0;
 }
+
+.ais-InstantSearch__root {
+  height: 100%;
+}
