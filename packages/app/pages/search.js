@@ -1,15 +1,9 @@
 import React from 'react'
-import { InstantSearch, instantSearchSettings } from '../lib/instant-search'
-import {
-  RefinementList,
-  SearchBox,
-  Configure,
-  Pagination,
-} from 'react-instantsearch/dom';
+import { RefinementList } from 'react-instantsearch/dom';
 import { connectHits } from 'react-instantsearch-dom';
 import SpotLink from '../ui/components/SpotLink';
-import { Container, Grid } from 'semantic-ui-react'
-import AppLayout from '../ui/layouts/App'
+import SearchLayout from '../ui/layouts/SearchLayout'
+import { Grid } from 'semantic-ui-react'
 
 // resultsState={this.props.resultsState}
 // onSearchStateChange={this.props.onSearchStateChange}
@@ -31,33 +25,14 @@ const CustomHits = connectHits(({ hits }) => (
 ))
 
 export default function SearchPage() {
-  const { appId, apiKey } = instantSearchSettings;
   return (
-    <AppLayout>
-      <Container>
-        <InstantSearch
-          appId={appId}
-          apiKey={apiKey}
-          indexName='Spots'
-        >
-          <Configure hitsPerPage={12} />
-          <header>
-            <h1>Look for spots</h1>
-            <SearchBox className="ui input fluid large" />
-          </header>
-          <content>
-            <menu>
-              <RefinementList attribute="category" />
-            </menu>
-            <results>
-             <CustomHits />
-            </results>
-          </content>
-          <footer>
-            <Pagination />
-          </footer>
-        </InstantSearch>
-      </Container>
-    </AppLayout>
+    <SearchLayout>
+      <menu>
+        <RefinementList attribute="category" />
+      </menu>
+      <results>
+        <CustomHits />
+      </results>
+    </SearchLayout>
   );
 }

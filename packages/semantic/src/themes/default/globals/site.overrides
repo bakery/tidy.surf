@@ -88,6 +88,17 @@ section .dateTitle.firstDateTitle {
   margin-top: 0px;
 }
 
+/* ICON */
+.searchBoxWrap {
+  position: relative;
+}
+
+.sidebarButton {
+  position: absolute;
+  top: 11.5px;
+  left: 15px;
+}
+
 footer {
   padding: 15px;
 }
@@ -97,4 +108,8 @@ footer {
 .ui.grid .ais-Hits-item {
   width: 100%;
   margin-left: 0;
+}
+
+.ais-InstantSearch__root {
+  height: 100%;
 }
