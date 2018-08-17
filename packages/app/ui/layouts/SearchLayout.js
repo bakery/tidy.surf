@@ -11,7 +11,7 @@ import {
   Pagination,
 } from 'react-instantsearch/dom';
 
-export default class AppLayout extends SideBarStateHandler {
+export default class SearchLayout extends SideBarStateHandler {
   render() {
     const { children, title } = this.props;
     const { appId, apiKey } = instantSearchSettings;
@@ -53,7 +53,7 @@ export default class AppLayout extends SideBarStateHandler {
   }
 }
 
-AppLayout.propTypes = {
+SearchLayout.propTypes = {
   title: PropTypes.string,
   children: PropTypes.oneOfType([
     PropTypes.arrayOf(PropTypes.node),

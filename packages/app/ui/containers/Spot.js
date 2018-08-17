@@ -3,7 +3,6 @@ import PropTypes from 'prop-types'
 import { Query } from 'react-apollo'
 import gql from 'graphql-tag'
 import Tides from './Tides';
-import { Input, Container } from 'semantic-ui-react'
 import Head from 'next/head'
 
 export const getSpotById = gql`
