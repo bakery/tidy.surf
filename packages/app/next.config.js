@@ -21,7 +21,7 @@ module.exports = withCss({
           outputPath: 'static/',
           name: '[name].[ext]'
         }
-      }
+      },
     })
 
     if (ANALYZE) {
