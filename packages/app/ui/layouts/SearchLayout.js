@@ -1,3 +1,5 @@
+import qs from 'qs';
+import _ from 'lodash';
 import React from 'react'
 import PropTypes from 'prop-types'
 import MetaComponent from '../components/MetaComponent';
@@ -9,8 +11,43 @@ import {
   Configure,
   Pagination,
 } from 'react-instantsearch/dom';
+import { withRouter } from 'next/router'
 
-export default class SearchLayout extends React.Component {
+class SearchLayout extends React.Component {
+  constructor(props) {
+    super(props);
+  
+    this.state = {
+      searchState: {},
+    };
+    this.onSearchStateChange = this.onSearchStateChange.bind(this);
+  }
+
+  componentDidUpdate(prevProps) {
+    const { query } = this.props.router.query;
+
+    if (query !== prevProps.router.query.query) {
+      this.setState({
+        searchState: qs.parse(this.props.router.query)
+      })
+    }
+  }
+
+  onSearchStateChange(state) {
+    const { router } = this.props;
+    router.push(`/search?${qs.stringify(state)}`);
+  }
+
+  componentDidMount() {
+    const { router } = this.props;
+
+    if (!_.isEmpty(router.query)) {
+      this.setState({
+        searchState: router.query,
+      })
+    }
+  }
+
   render() {
     const { children, title } = this.props;
     const { appId, apiKey } = instantSearchSettings;
@@ -21,6 +58,8 @@ export default class SearchLayout extends React.Component {
             appId={appId}
             apiKey={apiKey}
             indexName='Spots'
+            onSearchStateChange={this.onSearchStateChange}
+            searchState={this.state.searchState}
           >
             <Configure hitsPerPage={12} />
             <SideBar>
@@ -46,4 +85,7 @@ SearchLayout.propTypes = {
     PropTypes.arrayOf(PropTypes.node),
     PropTypes.node
   ]),
+  router: PropTypes.object.isRequired,
 }
+
+export default withRouter(SearchLayout);
