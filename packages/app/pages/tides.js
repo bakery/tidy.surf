@@ -1,52 +1,27 @@
-import React, { Component } from 'react'
-import PropTypes from 'prop-types';
-import Spot from '../ui/containers/Spot'
-import ListOfSpots from '../ui/containers/ListOfSpots';
-import AppLayout from '../ui/layouts/App'
-import Head from 'next/head'
+import React from 'react'
+import { connectHits } from 'react-instantsearch-dom';
+import SpotLink from '../ui/components/SpotLink';
+import SearchLayout from '../ui/layouts/SearchLayout'
+import { Grid } from 'semantic-ui-react'
 
+const CustomHits = connectHits(({ hits }) => (
+  <Grid columns={1}>
+    <Grid.Row>
+      {hits.map(hit =>
+        <Grid.Column key={hit.objectID} mobile={16} tablet={8} computer={4}>
+          <div className="ais-Hits-item">
+            <SpotLink spot={Object.assign({}, hit, { id: hit.objectID })} />
+          </div>
+        </Grid.Column>
+      )}
+    </Grid.Row>
+  </Grid>
+))
 
-export default class Tides extends Component {
-  constructor() {
-    super();
-    this.renderContent = this.renderContent.bind(this);
-  }
-
-  static getInitialProps ({ query }) {
-    return {
-      spotId: query ? `${query.citySlug}-${query.stateSlug}-${query.countrySlug}` : null,
-    }
-  }
-
-  renderContent() {
-    const { spotId } = this.props;
-    if (!spotId) {
-      return (
-        <ListOfSpots />
-      )
-    }
-
-    return (
-      <div>
-        <Spot id={spotId} />
-        <ListOfSpots />
-      </div>
-    )
-  }
-
-  render () {
-    return (
-      <AppLayout>
-        <Head>
-          <title key="title">Tides</title>
-        </Head>
-        {this.renderContent()}
-      </AppLayout>
-    )
-  }
+export default function SearchPage() {
+  return (
+    <SearchLayout title='Search'>
+      <CustomHits />
+    </SearchLayout>
+  );
 }
-
-Tides.propTypes = {
-  spotId: PropTypes.string
-};
-

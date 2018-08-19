@@ -1,25 +1,18 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import {
-  SearchBox,
-} from 'react-instantsearch/dom';
-import { Icon, Container } from 'semantic-ui-react'
+import { SearchBox } from 'react-instantsearch/dom';
+import { Icon } from 'semantic-ui-react'
 
 export default class AlgoliaSearchBox extends Component {
   render() {
     const { handleButtonClick } = this.props;
     return (
-      <header>
-        <Container>
-          <h1>Look for spots</h1>
-          <div className="searchBoxWrap">
-            <SearchBox className="ui input fluid large" />
-            <div className="sidebarButton">
-              <Icon color='grey' link name='bars' onClick={handleButtonClick} />
-            </div>
-          </div>
-        </Container>
-      </header>
+      <div className="searchBoxWrap">
+        <SearchBox className="ui input fluid large" />
+        <div className="sidebarButton">
+          <Icon color='grey' link name='bars' onClick={handleButtonClick} />
+        </div>
+      </div>
     );
   }
 }

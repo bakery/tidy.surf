@@ -2,15 +2,12 @@ import qs from 'qs';
 import _ from 'lodash';
 import React from 'react'
 import PropTypes from 'prop-types'
+import { Divider } from 'semantic-ui-react'
 import MetaComponent from '../components/MetaComponent';
 import SideBar from '../components/SideBar';
-import { Container } from 'semantic-ui-react'
 import { InstantSearch, instantSearchSettings } from '../../lib/instant-search'
 import AlgoliaSearchBox from '../components/AlgoliaSearchBox';
-import {
-  Configure,
-  Pagination,
-} from 'react-instantsearch/dom';
+import { Configure } from 'react-instantsearch/dom';
 import { withRouter } from 'next/router'
 
 class SearchLayout extends React.Component {
@@ -54,26 +51,20 @@ class SearchLayout extends React.Component {
     return (
       <div className="layoutWrap">
         <MetaComponent title={title} />
-          <InstantSearch
-            appId={appId}
-            apiKey={apiKey}
-            indexName='Spots'
-            onSearchStateChange={this.onSearchStateChange}
-            searchState={this.state.searchState}
-          >
-            <Configure hitsPerPage={12} />
-            <SideBar>
-              <AlgoliaSearchBox />
-              <content>
-                <Container>
-                  {children}
-                </Container>
-              </content>
-              <footer>
-                <Pagination />
-              </footer>
-            </SideBar>
-          </InstantSearch>
+        <InstantSearch
+          appId={appId}
+          apiKey={apiKey}
+          indexName='Spots'
+          onSearchStateChange={this.onSearchStateChange}
+          searchState={this.state.searchState}
+        >
+          <Configure hitsPerPage={12} />
+          <SideBar>
+            <Divider hidden />
+            <AlgoliaSearchBox />
+            {children}
+          </SideBar>
+        </InstantSearch>
       </div>
     )
   }

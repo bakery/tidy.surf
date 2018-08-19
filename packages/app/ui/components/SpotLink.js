@@ -16,8 +16,8 @@ class SpotLink extends Component {
 
     return (
       <Link 
-        as={`/tides/${id}`} 
-        href={`/tides?citySlug=${citySlug}&stateSlug=${stateSlug}&countrySlug=${countrySlug}`}
+        as={`/forecast/${id}`} 
+        href={`/forecast?citySlug=${citySlug}&stateSlug=${stateSlug}&countrySlug=${countrySlug}`}
       >
         <a>{city}, {state}, {country}</a>
       </Link>

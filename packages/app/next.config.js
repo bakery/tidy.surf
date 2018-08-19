@@ -17,9 +17,10 @@ module.exports = withCss({
         loader: 'url-loader',
         options: {
           limit: 1000,
-          publicPath: './',
-          outputPath: 'static/',
-          name: '[name].[ext]'
+          fallback: 'file-loader',
+          publicPath: '/_next/static/',
+          outputPath: `${isServer ? '../' : ''}static/`,
+          name: '[name]-[hash].[ext]'
         }
       }
     })

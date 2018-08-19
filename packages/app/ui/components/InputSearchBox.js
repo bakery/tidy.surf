@@ -1,27 +1,65 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types'
-import { Icon, Container, Input } from 'semantic-ui-react'
+import PropTypes from 'prop-types';
+import { Divider, Icon, Input, Grid } from 'semantic-ui-react';
+import Router from 'next/router';
+
+const navigateToSearchPage = (query) =>
+  Router.push({
+    pathname: '/tides',
+    query: { query }
+  })
+
 
 export default class InputSearchBox extends Component {
+  constructor(props) {
+    super();
+
+    this.state = {
+      query: props.query || ''
+    };
+
+    this.handleKeyDown = this.handleKeyDown.bind(this);
+    this.handleChange = this.handleChange.bind(this);
+  }
+
+  handleKeyDown(e) {
+    if(e.keyCode === 13 && this.state.query) {
+      navigateToSearchPage(this.state.query);
+    }
+  }
+
+  handleChange(e) {
+    this.setState({ query: e.target.value });
+  }
+
   render() {
-    const {
-      handleButtonClick,
-    } = this.props;
+    const { handleButtonClick } = this.props;
     return (
-      <header>
-        <Container>
+      <Grid.Row>
+        <Grid.Column>
+          <Divider hidden />
           <div className="searchBoxWrap">
-            <Input icon='search' size='large' fluid placeholder='Search...' />
+            <Input
+              onKeyDown={this.handleKeyDown}
+              onChange={this.handleChange} 
+              type='search'
+              icon='search'
+              size='large'
+              fluid
+              placeholder='Search...'
+              value={this.state.query}
+            />
             <div className="sidebarButton">
               <Icon color='grey' link name='bars' onClick={handleButtonClick} />
             </div>
           </div>
-        </Container>
-      </header>
+        </Grid.Column>
+      </Grid.Row>
     );
   }
 }
 
 InputSearchBox.propTypes = {
   handleButtonClick: PropTypes.func.isRequired,
+  query: PropTypes.string
 }
