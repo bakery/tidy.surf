@@ -11,11 +11,11 @@ const navigateToSearchPage = (query) =>
 
 
 export default class InputSearchBox extends Component {
-  constructor() {
+  constructor(props) {
     super();
 
     this.state = {
-      query: null
+      query: props.query || ''
     };
 
     this.handleKeyDown = this.handleKeyDown.bind(this);
@@ -33,9 +33,7 @@ export default class InputSearchBox extends Component {
   }
 
   render() {
-    const {
-      handleButtonClick,
-    } = this.props;
+    const { handleButtonClick } = this.props;
     return (
       <header>
         <Container>
@@ -48,6 +46,7 @@ export default class InputSearchBox extends Component {
               size='large'
               fluid
               placeholder='Search...'
+              value={this.state.query}
             />
             <div className="sidebarButton">
               <Icon color='grey' link name='bars' onClick={handleButtonClick} />
@@ -61,4 +60,5 @@ export default class InputSearchBox extends Component {
 
 InputSearchBox.propTypes = {
   handleButtonClick: PropTypes.func.isRequired,
+  query: PropTypes.string
 }

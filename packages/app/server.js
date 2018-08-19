@@ -25,11 +25,11 @@ app.prepare().then(function whenAppIsReady() {
   API.connect(server)
   Sitemap.connect(server)
 
-  server.get('/tides/:citySlug-:stateSlug-:countrySlug', function (req, res) {
+  server.get('/forecast/:citySlug-:stateSlug-:countrySlug', function (req, res) {
     return app.render(
       req,
       res,
-      '/tides',
+      '/forecast',
       {
         citySlug: req.params.citySlug,
         countrySlug: req.params.countrySlug,

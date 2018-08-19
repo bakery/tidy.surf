@@ -6,15 +6,14 @@ import InputSearchBox from '../components/InputSearchBox';
 
 export default class AppLayout extends React.Component {
   render() {
-    const { children, title } = this.props;
+    const { children, spot, title } = this.props;
     return (
       <div className="layoutWrap">
         <MetaComponent title={title} />
         <SideBar>
-          <InputSearchBox />
+          <InputSearchBox query={spot && spot.city} />
           {children}
         </SideBar>
-        <footer>Footer</footer>
       </div>
     )
   }
@@ -22,6 +21,9 @@ export default class AppLayout extends React.Component {
 
 AppLayout.propTypes = {
   title: PropTypes.string,
+  spot: PropTypes.shape({
+    city: PropTypes.string.isRequired
+  }),
   children: PropTypes.oneOfType([
     PropTypes.arrayOf(PropTypes.node),
     PropTypes.node
