@@ -2,9 +2,9 @@ import qs from 'qs';
 import _ from 'lodash';
 import React from 'react'
 import PropTypes from 'prop-types'
+import { Divider } from 'semantic-ui-react'
 import MetaComponent from '../components/MetaComponent';
 import SideBar from '../components/SideBar';
-import { Container } from 'semantic-ui-react'
 import { InstantSearch, instantSearchSettings } from '../../lib/instant-search'
 import AlgoliaSearchBox from '../components/AlgoliaSearchBox';
 import { Configure } from 'react-instantsearch/dom';
@@ -60,10 +60,9 @@ class SearchLayout extends React.Component {
         >
           <Configure hitsPerPage={12} />
           <SideBar>
+            <Divider hidden />
             <AlgoliaSearchBox />
-            <Container>
-              {children}
-            </Container>
+            {children}
           </SideBar>
         </InstantSearch>
       </div>
