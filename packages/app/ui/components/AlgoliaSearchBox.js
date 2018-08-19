@@ -11,7 +11,6 @@ export default class AlgoliaSearchBox extends Component {
     return (
       <header>
         <Container>
-          <h1>Look for spots</h1>
           <div className="searchBoxWrap">
             <SearchBox className="ui input fluid large" />
             <div className="sidebarButton">
