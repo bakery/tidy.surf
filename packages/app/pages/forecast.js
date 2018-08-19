@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types';
 import Spot from '../ui/containers/Spot';
-import ListOfSpots from '../ui/containers/ListOfSpots';
 
 export default class Tides extends Component {
   static getInitialProps ({ query }) {
@@ -13,10 +12,7 @@ export default class Tides extends Component {
   render () {
     const { spotId } = this.props;
     return (
-      <div>
-        <Spot id={spotId} />
-        <ListOfSpots />
-      </div>
+      <Spot id={spotId} />
     )
   }
 }

@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types'
 import { Query } from 'react-apollo'
 import gql from 'graphql-tag'
-import { Tab, Table, Container } from 'semantic-ui-react'
+import { Tab, Table, Card } from 'semantic-ui-react'
 import TidePane from '../components/TidePane';
 import _ from 'lodash';
 
@@ -141,19 +141,17 @@ export default function Tides ({ spot }) {
             }
           ]
           return (
-            <Container>
-              <Tab 
-                menu={{
-                  attached: 'top',
-                  secondary: true,
-                  pointing: true,
-                  borderless: true,
-                  widths: 3,
-                  fluid: true
-                }}
-                panes={panes}
-              />
-            </Container>
+            <Tab 
+              menu={{
+                attached: 'top',
+                secondary: true,
+                pointing: true,
+                borderless: true,
+                widths: 3,
+                fluid: true
+              }}
+              panes={panes}
+            />
           )
         }
         if (error) return `Error! ${error.message}`;
@@ -183,9 +181,11 @@ export default function Tides ({ spot }) {
         ]
 
         return (
-          <Container>
-            <Tab menu={{ attached: 'top', secondary: true, pointing: true, borderless: true, widths: 3, fluid: true }} panes={panes} />
-          </Container>
+          <Card>
+            <Card.Content>
+              <Tab menu={{ attached: 'top', secondary: true, pointing: true, borderless: true, widths: 3, fluid: true }} panes={panes} />
+            </Card.Content>
+          </Card>
         );
       }}
     </Query>

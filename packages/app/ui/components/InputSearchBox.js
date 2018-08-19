@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types'
-import { Icon, Container, Input } from 'semantic-ui-react'
-import Router from 'next/router'
+import PropTypes from 'prop-types';
+import { Divider, Icon, Input, Grid } from 'semantic-ui-react';
+import Router from 'next/router';
 
 const navigateToSearchPage = (query) =>
   Router.push({
@@ -35,8 +35,9 @@ export default class InputSearchBox extends Component {
   render() {
     const { handleButtonClick } = this.props;
     return (
-      <header>
-        <Container>
+      <Grid.Row>
+        <Grid.Column>
+          <Divider hidden />
           <div className="searchBoxWrap">
             <Input
               onKeyDown={this.handleKeyDown}
@@ -52,8 +53,8 @@ export default class InputSearchBox extends Component {
               <Icon color='grey' link name='bars' onClick={handleButtonClick} />
             </div>
           </div>
-        </Container>
-      </header>
+        </Grid.Column>
+      </Grid.Row>
     );
   }
 }
