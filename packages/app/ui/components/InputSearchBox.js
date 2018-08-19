@@ -5,7 +5,7 @@ import Router from 'next/router'
 
 const navigateToSearchPage = (query) =>
   Router.push({
-    pathname: '/search',
+    pathname: '/tides',
     query: { query }
   })
 
