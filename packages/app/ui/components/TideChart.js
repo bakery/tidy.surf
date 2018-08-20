@@ -5,7 +5,7 @@ import * as d3 from 'd3'
 
 const canvasOffset = 0.1;
 const canvasWidth = 400;
-const canvasHeight = 200;
+const canvasHeight = 100;
 
 export default class TideChart extends React.Component {
   componentDidMount() {
