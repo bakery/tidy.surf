@@ -36,12 +36,21 @@ export default class TideChart extends React.Component {
       withPadding(data), ({ dt, height }) => [dt, height]
     );    
     const line = d3.line().x((d) => xScale(d[0])).y((d) => yScale(d[1])).curve(d3.curveMonotoneX);
+
+    const d = `${line(points)} L ${canvasWidth} ${canvasHeight + 10} L 0 ${canvasHeight + 10}`
     return (
       <div>
         <svg id="canvas" viewBox={`0 0 ${canvasWidth} ${canvasHeight}`}>
+          <defs>
+            <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" style={{stopColor: '#4D6490', stopOpacity:1}} />
+              <stop offset="100%" style={{stopColor: '#D8E1EA', stopOpacity:1}} />
+            </linearGradient>
+          </defs>
           <path
+            fill="url(#grad1)"
             className="line"
-            d={line(points)}
+            d={d}
           />
           {
             _.map(points, (p, k) => {
