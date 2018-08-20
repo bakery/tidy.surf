@@ -401,7 +401,8 @@ module.exports = {
           { name: "api", checked: true },
           { name: "form", checked: true },
           { name: "state", checked: true },
-          { name: "visibility", checked: true }
+          { name: "visibility", checked: true },
+          { name: "tide-chart", checked: true }
         ],
         when: when.notAuto
       },

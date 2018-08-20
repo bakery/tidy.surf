@@ -54,22 +54,6 @@ export default class TideChart extends React.Component {
   render() {
     return (
       <div>
-        <style global>{`
-          #canvas {
-            margin-top: 2em;
-            border: solid 1px #ccc;
-          }
-          .line {
-            fill: none;
-            stroke: steelblue;
-            stroke-width: 1.5px;
-          }
-
-          .dot {
-            fill: #ffab00;
-            stroke: #fff;
-          }
-        `}</style>
         <svg id="canvas" width={canvasWidth} height={canvasHeight} />
       </div>
     );
