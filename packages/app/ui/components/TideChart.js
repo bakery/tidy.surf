@@ -8,13 +8,13 @@ const canvasWidth = 400;
 const canvasHeight = 100;
 
 export default class TideChart extends React.Component {
-  componentDidMount() {
+  render() {
     const { data } = this.props;
+    console.log('data', data);
     const mindt = _.minBy(data, 'dt');
     const maxdt = _.maxBy(data, 'dt');
     const minHeight = _.minBy(data, 'height');
     const maxHeight = _.maxBy(data, 'height');
-    const canvas = d3.select('#canvas');
 
     const withPadding = d => {
       const padding = [{
@@ -37,24 +37,40 @@ export default class TideChart extends React.Component {
       withPadding(data), ({ dt, height }) => [dt, height]
     );    
     const line = d3.line().x((d) => xScale(d[0])).y((d) => yScale(d[1])).curve(d3.curveMonotoneX);
-
-
-    // draw the tide curve
-    canvas.append('path').datum(points).attr('class', 'line').call(() => canvas.select('path').attr('d', line));
-
-    // mark tide extremes with dots
-    canvas.selectAll('.dot').data(points)
-      .enter().append('circle')
-        .attr('class', 'dot')
-        .attr('cx', d => xScale(d[0]))
-        .attr('cy', d => yScale(d[1]))
-        .attr('r', 5);
-  }
-
-  render() {
     return (
       <div>
-        <svg id="canvas" viewBox={`0 0 ${canvasWidth} ${canvasHeight}`} />
+        <svg id="canvas" viewBox={`0 0 ${canvasWidth} ${canvasHeight}`}>
+          <path
+            className="line"
+            d={line(points)}
+          />
+          {
+            _.map(points, (p, k) => {
+              return (
+                <React.Fragment>
+                  {
+                    k < data.length ?
+                      <foreignObject
+                        x={xScale(p[0]) - 25}
+                        y={
+                          data[k].type === 'High' ?
+                            yScale(p[1]) + 15 :
+                            yScale(p[1]) - 30
+                        }
+                      >
+                        <div className="dot-label">
+                          <p>{data[k].prettyTimeLabel}</p>
+                          <p>{data[k].type}</p>
+                        </div>
+                      </foreignObject> :
+                      null
+                  }
+                  <circle className="dot" cx={xScale(p[0])} cy={yScale(p[1])} r={5} />
+                </React.Fragment>
+              )
+            })
+          }
+        </svg>
       </div>
     );
   }
