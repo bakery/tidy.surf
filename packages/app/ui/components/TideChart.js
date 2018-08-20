@@ -4,12 +4,27 @@ import _ from 'lodash'
 import * as d3 from 'd3'
 
 const canvasOffset = 0.1;
-const canvasWidth = 400;
-const canvasHeight = 100;
 
 export default class TideChart extends React.Component {
+  constructor() {
+    super()
+
+    this.state = {
+      svgContainerWidth: 0,
+      svgContainerHeight: 0,
+    }
+
+    this.svgContainer = React.createRef();
+  }
+  componentDidMount() {
+    this.setState({
+      svgContainerWidth: this.svgContainer.current.offsetWidth,
+      svgContainerHeight: this.svgContainer.current.offsetHeight,
+    })
+  }
   render() {
     const { data } = this.props;
+    console.log('data', data);
     const mindt = _.minBy(data, 'dt');
     const maxdt = _.maxBy(data, 'dt');
     const minHeight = _.minBy(data, 'height');
@@ -27,20 +42,20 @@ export default class TideChart extends React.Component {
     };
                        
     const xScale = d3.scaleLinear().domain([mindt.dt, maxdt.dt]).range(
-      [canvasOffset * canvasWidth, (1 - canvasOffset) * canvasWidth]
+      [canvasOffset * this.state.svgContainerWidth, (1 - canvasOffset) * this.state.svgContainerWidth]
     );
     const yScale = d3.scaleLinear().domain([minHeight.height, maxHeight.height]).range(
-      [canvasOffset * canvasHeight, (1 - canvasOffset) * canvasHeight]
+      [canvasOffset * this.state.svgContainerHeight, (1 - canvasOffset) * this.state.svgContainerHeight]
     );
     const points = _.map(
       withPadding(data), ({ dt, height }) => [dt, height]
     );    
     const line = d3.line().x((d) => xScale(d[0])).y((d) => yScale(d[1])).curve(d3.curveMonotoneX);
 
-    const d = `${line(points)} L ${canvasWidth} ${canvasHeight + 10} L 0 ${canvasHeight + 10}`
+    const d = `${line(points)} L ${this.state.svgContainerWidth} ${this.state.svgContainerHeight + 10} L 0 ${this.state.svgContainerHeight + 10}`
     return (
-      <div>
-        <svg id="canvas" viewBox={`0 0 ${canvasWidth} ${canvasHeight}`}>
+      <div ref={this.svgContainer}>
+        <svg id="canvas" viewBox={`0 0 ${this.state.svgContainerWidth} ${this.state.svgContainerHeight}`}>
           <defs>
             <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="0%">
               <stop offset="0%" style={{stopColor: '#4D6490', stopOpacity:1}} />
@@ -68,7 +83,7 @@ export default class TideChart extends React.Component {
                       >
                         <div className="dot-label">
                           <p>{data[k].prettyTimeLabel}</p>
-                          <p>{data[k].type}</p>
+                          <p>{data[k].height}m</p>
                         </div>
                       </foreignObject> :
                       null
