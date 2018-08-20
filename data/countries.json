@@ -1,0 +1,977 @@
+[
+  {
+    "name": "United States",
+    "link": "https://www.tide-forecast.com/countries/United-States/regions",
+    "countryCode": "us"
+  },
+  {
+    "name": "Antigua and Barbuda",
+    "link": "https://www.tide-forecast.com/countries/Antigua-and-Barbuda",
+    "countryCode": "ag"
+  },
+  {
+    "name": "Bahamas",
+    "link": "https://www.tide-forecast.com/countries/Bahamas",
+    "countryCode": "bs"
+  },
+  {
+    "name": "Bahamas",
+    "link": "https://www.tide-forecast.com/countries/Bahamas-1",
+    "countryCode": "bs"
+  },
+  {
+    "name": "Barbados",
+    "link": "https://www.tide-forecast.com/countries/Barbados",
+    "countryCode": "bb"
+  },
+  {
+    "name": "Belize",
+    "link": "https://www.tide-forecast.com/countries/Belize",
+    "countryCode": "bz"
+  },
+  {
+    "name": "Bermuda",
+    "link": "https://www.tide-forecast.com/countries/Bermuda",
+    "countryCode": "bm"
+  },
+  {
+    "name": "Canada",
+    "link": "https://www.tide-forecast.com/countries/Canada/regions",
+    "countryCode": "ca"
+  },
+  {
+    "name": "Cayman Islands",
+    "link": "https://www.tide-forecast.com/countries/Cayman-Islands",
+    "countryCode": "ky"
+  },
+  {
+    "name": "Costa Rica",
+    "link": "https://www.tide-forecast.com/countries/Costa-Rica",
+    "countryCode": "cr"
+  },
+  {
+    "name": "Cuba",
+    "link": "https://www.tide-forecast.com/countries/Cuba",
+    "countryCode": "cu"
+  },
+  {
+    "name": "Dominica",
+    "link": "https://www.tide-forecast.com/countries/Dominica",
+    "countryCode": "dm"
+  },
+  {
+    "name": "Dominican Republic",
+    "link": "https://www.tide-forecast.com/countries/Dominican-Republic",
+    "countryCode": "do"
+  },
+  {
+    "name": "El Salvador",
+    "link": "https://www.tide-forecast.com/countries/El-Salvador",
+    "countryCode": "sv"
+  },
+  {
+    "name": "Greenland",
+    "link": "https://www.tide-forecast.com/countries/Greenland",
+    "countryCode": "ca"
+  },
+  {
+    "name": "Grenada",
+    "link": "https://www.tide-forecast.com/countries/Grenada",
+    "countryCode": "gd"
+  },
+  {
+    "name": "Guadeloupe",
+    "link": "https://www.tide-forecast.com/countries/Guadeloupe",
+    "countryCode": "gp"
+  },
+  {
+    "name": "Guatemala",
+    "link": "https://www.tide-forecast.com/countries/Guatemala",
+    "countryCode": "gt"
+  },
+  {
+    "name": "Haiti",
+    "link": "https://www.tide-forecast.com/countries/Haiti",
+    "countryCode": "ht"
+  },
+  {
+    "name": "Honduras",
+    "link": "https://www.tide-forecast.com/countries/Honduras",
+    "countryCode": "hn"
+  },
+  {
+    "name": "Jamaica",
+    "link": "https://www.tide-forecast.com/countries/Jamaica",
+    "countryCode": "jm"
+  },
+  {
+    "name": "Martinique",
+    "link": "https://www.tide-forecast.com/countries/Martinique",
+    "countryCode": "mq"
+  },
+  {
+    "name": "Mexico",
+    "link": "https://www.tide-forecast.com/countries/Mexico",
+    "countryCode": "mx"
+  },
+  {
+    "name": "Netherlands Antilles",
+    "link": "https://www.tide-forecast.com/countries/Netherlands-Antilles",
+    "countryCode": "an"
+  },
+  {
+    "name": "Nicaragua",
+    "link": "https://www.tide-forecast.com/countries/Nicaragua",
+    "countryCode": "ni"
+  },
+  {
+    "name": "Panama",
+    "link": "https://www.tide-forecast.com/countries/Panama",
+    "countryCode": "pa"
+  },
+  {
+    "name": "Puerto Rico",
+    "link": "https://www.tide-forecast.com/countries/Puerto-Rico",
+    "countryCode": "pr"
+  },
+  {
+    "name": "Saint Lucia",
+    "link": "https://www.tide-forecast.com/countries/Saint-Lucia",
+    "countryCode": "lc"
+  },
+  {
+    "name": "St. Vincent and the Grenadines",
+    "link": "https://www.tide-forecast.com/countries/St-Vincent-and-the-Grenadines",
+    "countryCode": "vc"
+  },
+  {
+    "name": "Trinidad and Tobago",
+    "link": "https://www.tide-forecast.com/countries/Trinidad-and-Tobago",
+    "countryCode": "tt"
+  },
+  {
+    "name": "Turks and Caicos Islands",
+    "link": "https://www.tide-forecast.com/countries/Turks-and-Caicos-Islands",
+    "countryCode": "bs"
+  },
+  {
+    "name": "U S Virgin Islands",
+    "link": "https://www.tide-forecast.com/countries/U-S-Virgin-Islands",
+    "countryCode": "vi"
+  },
+  {
+    "name": "Albania",
+    "link": "https://www.tide-forecast.com/countries/Albania",
+    "countryCode": "al"
+  },
+  {
+    "name": "Belgium",
+    "link": "https://www.tide-forecast.com/countries/Belgium",
+    "countryCode": "be"
+  },
+  {
+    "name": "Croatia",
+    "link": "https://www.tide-forecast.com/countries/Croatia",
+    "countryCode": "hr"
+  },
+  {
+    "name": "Denmark",
+    "link": "https://www.tide-forecast.com/countries/Denmark",
+    "countryCode": "dk"
+  },
+  {
+    "name": "Estonia",
+    "link": "https://www.tide-forecast.com/countries/Estonia",
+    "countryCode": "ee"
+  },
+  {
+    "name": "Faroe Islands",
+    "link": "https://www.tide-forecast.com/countries/Faroe-Islands",
+    "countryCode": "fo"
+  },
+  {
+    "name": "Finland",
+    "link": "https://www.tide-forecast.com/countries/Finland",
+    "countryCode": "fi"
+  },
+  {
+    "name": "France",
+    "link": "https://www.tide-forecast.com/countries/France",
+    "countryCode": "fr"
+  },
+  {
+    "name": "Germany",
+    "link": "https://www.tide-forecast.com/countries/Germany",
+    "countryCode": "de"
+  },
+  {
+    "name": "Greece",
+    "link": "https://www.tide-forecast.com/countries/Greece",
+    "countryCode": "gr"
+  },
+  {
+    "name": "Iceland",
+    "link": "https://www.tide-forecast.com/countries/Iceland",
+    "countryCode": "is"
+  },
+  {
+    "name": "Ireland",
+    "link": "https://www.tide-forecast.com/countries/Ireland",
+    "countryCode": "ie"
+  },
+  {
+    "name": "Isleof Man",
+    "link": "https://www.tide-forecast.com/countries/Isleof-Man",
+    "countryCode": "im"
+  },
+  {
+    "name": "Italy",
+    "link": "https://www.tide-forecast.com/countries/Italy",
+    "countryCode": "it"
+  },
+  {
+    "name": "Jersey",
+    "link": "https://www.tide-forecast.com/countries/Jersey",
+    "countryCode": "gb"
+  },
+  {
+    "name": "Latvia",
+    "link": "https://www.tide-forecast.com/countries/Latvia",
+    "countryCode": "lv"
+  },
+  {
+    "name": "Madeira Portugal",
+    "link": "https://www.tide-forecast.com/countries/Madeira-Portugal",
+    "countryCode": "pt"
+  },
+  {
+    "name": "Malta",
+    "link": "https://www.tide-forecast.com/countries/Malta",
+    "countryCode": "mt"
+  },
+  {
+    "name": "Monaco",
+    "link": "https://www.tide-forecast.com/countries/Monaco",
+    "countryCode": "mc"
+  },
+  {
+    "name": "Netherlands",
+    "link": "https://www.tide-forecast.com/countries/Netherlands",
+    "countryCode": "nl"
+  },
+  {
+    "name": "Norway",
+    "link": "https://www.tide-forecast.com/countries/Norway",
+    "countryCode": "no"
+  },
+  {
+    "name": "Poland",
+    "link": "https://www.tide-forecast.com/countries/Poland",
+    "countryCode": "pl"
+  },
+  {
+    "name": "Portugal",
+    "link": "https://www.tide-forecast.com/countries/Portugal-1",
+    "countryCode": "pt"
+  },
+  {
+    "name": "Portugal",
+    "link": "https://www.tide-forecast.com/countries/Portugal",
+    "countryCode": "pt"
+  },
+  {
+    "name": "Romania",
+    "link": "https://www.tide-forecast.com/countries/Romania",
+    "countryCode": "ro"
+  },
+  {
+    "name": "Russia",
+    "link": "https://www.tide-forecast.com/countries/Russia/regions",
+    "countryCode": "ru"
+  },
+  {
+    "name": "Slovenia",
+    "link": "https://www.tide-forecast.com/countries/Slovenia",
+    "countryCode": "si"
+  },
+  {
+    "name": "Spain",
+    "link": "https://www.tide-forecast.com/countries/Spain",
+    "countryCode": "es"
+  },
+  {
+    "name": "Svalbard",
+    "link": "https://www.tide-forecast.com/countries/Svalbard",
+    "countryCode": "no"
+  },
+  {
+    "name": "Sweden",
+    "link": "https://www.tide-forecast.com/countries/Sweden",
+    "countryCode": "se"
+  },
+  {
+    "name": "Turkey",
+    "link": "https://www.tide-forecast.com/countries/Turkey",
+    "countryCode": "tr"
+  },
+  {
+    "name": "Ukraine",
+    "link": "https://www.tide-forecast.com/countries/Ukraine",
+    "countryCode": "ua"
+  },
+  {
+    "name": "United Kingdom",
+    "link": "https://www.tide-forecast.com/countries/United-Kingdom",
+    "countryCode": "gb"
+  },
+  {
+    "name": "Argentina",
+    "link": "https://www.tide-forecast.com/countries/Argentina",
+    "countryCode": "ar"
+  },
+  {
+    "name": "Brazil",
+    "link": "https://www.tide-forecast.com/countries/Brazil",
+    "countryCode": "br"
+  },
+  {
+    "name": "Chile",
+    "link": "https://www.tide-forecast.com/countries/Chile",
+    "countryCode": "cl"
+  },
+  {
+    "name": "Colombia",
+    "link": "https://www.tide-forecast.com/countries/Colombia",
+    "countryCode": "co"
+  },
+  {
+    "name": "Ecuador",
+    "link": "https://www.tide-forecast.com/countries/Ecuador",
+    "countryCode": "ec"
+  },
+  {
+    "name": "Falkland Islands",
+    "link": "https://www.tide-forecast.com/countries/Falkland-Islands",
+    "countryCode": "fk"
+  },
+  {
+    "name": "French Guiana",
+    "link": "https://www.tide-forecast.com/countries/French-Guiana",
+    "countryCode": "gf"
+  },
+  {
+    "name": "Guyana",
+    "link": "https://www.tide-forecast.com/countries/Guyana",
+    "countryCode": "gy"
+  },
+  {
+    "name": "Peru",
+    "link": "https://www.tide-forecast.com/countries/Peru",
+    "countryCode": "pe"
+  },
+  {
+    "name": "Suriname",
+    "link": "https://www.tide-forecast.com/countries/Suriname",
+    "countryCode": "sr"
+  },
+  {
+    "name": "Uruguay",
+    "link": "https://www.tide-forecast.com/countries/Uruguay",
+    "countryCode": "uy"
+  },
+  {
+    "name": "Venezuela",
+    "link": "https://www.tide-forecast.com/countries/Venezuela",
+    "countryCode": "ve"
+  },
+  {
+    "name": "Bahrain",
+    "link": "https://www.tide-forecast.com/countries/Bahrain",
+    "countryCode": "bh"
+  },
+  {
+    "name": "Bangladesh",
+    "link": "https://www.tide-forecast.com/countries/Bangladesh",
+    "countryCode": "bd"
+  },
+  {
+    "name": "Cambodia",
+    "link": "https://www.tide-forecast.com/countries/Cambodia",
+    "countryCode": "kh"
+  },
+  {
+    "name": "China",
+    "link": "https://www.tide-forecast.com/countries/China",
+    "countryCode": "cn"
+  },
+  {
+    "name": "Cocos Islands",
+    "link": "https://www.tide-forecast.com/countries/Cocos-Islands",
+    "countryCode": "cc"
+  },
+  {
+    "name": "Hong Kong",
+    "link": "https://www.tide-forecast.com/countries/Hong-Kong",
+    "countryCode": "cn"
+  },
+  {
+    "name": "India",
+    "link": "https://www.tide-forecast.com/countries/India",
+    "countryCode": "in"
+  },
+  {
+    "name": "Indonesia",
+    "link": "https://www.tide-forecast.com/countries/Indonesia",
+    "countryCode": "id"
+  },
+  {
+    "name": "Iran",
+    "link": "https://www.tide-forecast.com/countries/Iran",
+    "countryCode": "ir"
+  },
+  {
+    "name": "Iraq",
+    "link": "https://www.tide-forecast.com/countries/Iraq",
+    "countryCode": "iq"
+  },
+  {
+    "name": "Japan",
+    "link": "https://www.tide-forecast.com/countries/Japan",
+    "countryCode": "jp"
+  },
+  {
+    "name": "Kuwait",
+    "link": "https://www.tide-forecast.com/countries/Kuwait",
+    "countryCode": "kw"
+  },
+  {
+    "name": "Malaysia",
+    "link": "https://www.tide-forecast.com/countries/Malaysia",
+    "countryCode": "my"
+  },
+  {
+    "name": "Myanmar",
+    "link": "https://www.tide-forecast.com/countries/Myanmar",
+    "countryCode": "mm"
+  },
+  {
+    "name": "North Korea",
+    "link": "https://www.tide-forecast.com/countries/North-Korea-1",
+    "countryCode": "kp"
+  },
+  {
+    "name": "Oman",
+    "link": "https://www.tide-forecast.com/countries/Oman",
+    "countryCode": "om"
+  },
+  {
+    "name": "Pakistan",
+    "link": "https://www.tide-forecast.com/countries/Pakistan",
+    "countryCode": "pk"
+  },
+  {
+    "name": "Philippines",
+    "link": "https://www.tide-forecast.com/countries/Philippines",
+    "countryCode": "ph"
+  },
+  {
+    "name": "Qatar",
+    "link": "https://www.tide-forecast.com/countries/Qatar",
+    "countryCode": "qa"
+  },
+  {
+    "name": "Saudi Arabia",
+    "link": "https://www.tide-forecast.com/countries/Saudi-Arabia",
+    "countryCode": "sa"
+  },
+  {
+    "name": "Singapore",
+    "link": "https://www.tide-forecast.com/countries/Singapore",
+    "countryCode": "sg"
+  },
+  {
+    "name": "South Korea",
+    "link": "https://www.tide-forecast.com/countries/South-Korea-1",
+    "countryCode": "kr"
+  },
+  {
+    "name": "Sri Lanka",
+    "link": "https://www.tide-forecast.com/countries/Sri-Lanka",
+    "countryCode": "lk"
+  },
+  {
+    "name": "Taiwan",
+    "link": "https://www.tide-forecast.com/countries/Taiwan",
+    "countryCode": "tw"
+  },
+  {
+    "name": "Thailand",
+    "link": "https://www.tide-forecast.com/countries/Thailand",
+    "countryCode": "th"
+  },
+  {
+    "name": "United Arab Emirates",
+    "link": "https://www.tide-forecast.com/countries/United-Arab-Emirates",
+    "countryCode": "ae"
+  },
+  {
+    "name": "Vietnam",
+    "link": "https://www.tide-forecast.com/countries/Vietnam",
+    "countryCode": "vn"
+  },
+  {
+    "name": "Yemen",
+    "link": "https://www.tide-forecast.com/countries/Yemen",
+    "countryCode": "ye"
+  },
+  {
+    "name": "American Samoa",
+    "link": "https://www.tide-forecast.com/countries/American-Samoa",
+    "countryCode": "as"
+  },
+  {
+    "name": "Australia",
+    "link": "https://www.tide-forecast.com/countries/Australia/regions",
+    "countryCode": "au"
+  },
+  {
+    "name": "Cook Islands",
+    "link": "https://www.tide-forecast.com/countries/Cook-Islands",
+    "countryCode": "ck"
+  },
+  {
+    "name": "Fiji",
+    "link": "https://www.tide-forecast.com/countries/Fiji",
+    "countryCode": "fj"
+  },
+  {
+    "name": "French Polynesia",
+    "link": "https://www.tide-forecast.com/countries/French-Polynesia",
+    "countryCode": "pf"
+  },
+  {
+    "name": "Guam",
+    "link": "https://www.tide-forecast.com/countries/Guam",
+    "countryCode": "gu"
+  },
+  {
+    "name": "Kiribati",
+    "link": "https://www.tide-forecast.com/countries/Kiribati",
+    "countryCode": "ki"
+  },
+  {
+    "name": "Marshall Islands",
+    "link": "https://www.tide-forecast.com/countries/Marshall-Islands",
+    "countryCode": "mh"
+  },
+  {
+    "name": "Micronesia",
+    "link": "https://www.tide-forecast.com/countries/Micronesia",
+    "countryCode": "fm"
+  },
+  {
+    "name": "New Caledonia",
+    "link": "https://www.tide-forecast.com/countries/New-Caledonia",
+    "countryCode": "nc"
+  },
+  {
+    "name": "New Zealand",
+    "link": "https://www.tide-forecast.com/countries/New-Zealand",
+    "countryCode": "nz"
+  },
+  {
+    "name": "Niue",
+    "link": "https://www.tide-forecast.com/countries/Niue",
+    "countryCode": "nu"
+  },
+  {
+    "name": "Northern Mariana Islands",
+    "link": "https://www.tide-forecast.com/countries/Northern-Mariana-Islands",
+    "countryCode": "mp"
+  },
+  {
+    "name": "Palau",
+    "link": "https://www.tide-forecast.com/countries/Palau",
+    "countryCode": "pw"
+  },
+  {
+    "name": "Papua New Guinea",
+    "link": "https://www.tide-forecast.com/countries/Papua-New-Guinea",
+    "countryCode": "pg"
+  },
+  {
+    "name": "Samoa",
+    "link": "https://www.tide-forecast.com/countries/Samoa",
+    "countryCode": "ws"
+  },
+  {
+    "name": "Solomon Islands",
+    "link": "https://www.tide-forecast.com/countries/Solomon-Islands",
+    "countryCode": "sb"
+  },
+  {
+    "name": "Tokelau",
+    "link": "https://www.tide-forecast.com/countries/Tokelau",
+    "countryCode": "tk"
+  },
+  {
+    "name": "Tonga",
+    "link": "https://www.tide-forecast.com/countries/Tonga",
+    "countryCode": "to"
+  },
+  {
+    "name": "Tuvalu",
+    "link": "https://www.tide-forecast.com/countries/Tuvalu",
+    "countryCode": "tv"
+  },
+  {
+    "name": "Vanuatu",
+    "link": "https://www.tide-forecast.com/countries/Vanuatu",
+    "countryCode": "vu"
+  },
+  {
+    "name": "Wallis and Futuna",
+    "link": "https://www.tide-forecast.com/countries/Wallis-and-Futuna",
+    "countryCode": "wf"
+  },
+  {
+    "name": "Angola",
+    "link": "https://www.tide-forecast.com/countries/Angola",
+    "countryCode": "ao"
+  },
+  {
+    "name": "Cameroon",
+    "link": "https://www.tide-forecast.com/countries/Cameroon",
+    "countryCode": "cm"
+  },
+  {
+    "name": "Cape Verde",
+    "link": "https://www.tide-forecast.com/countries/Cape-Verde",
+    "countryCode": "cv"
+  },
+  {
+    "name": "Congo",
+    "link": "https://www.tide-forecast.com/countries/Congo",
+    "countryCode": "cg"
+  },
+  {
+    "name": "Côte d'Ivoire",
+    "link": "https://www.tide-forecast.com/countries/C-te-d-Ivoire",
+    "countryCode": "ci"
+  },
+  {
+    "name": "Djibouti",
+    "link": "https://www.tide-forecast.com/countries/Djibouti",
+    "countryCode": "dj"
+  },
+  {
+    "name": "Egypt",
+    "link": "https://www.tide-forecast.com/countries/Egypt",
+    "countryCode": "eg"
+  },
+  {
+    "name": "Equatorial Guinea",
+    "link": "https://www.tide-forecast.com/countries/Equatorial-Guinea",
+    "countryCode": "gq"
+  },
+  {
+    "name": "Eritrea",
+    "link": "https://www.tide-forecast.com/countries/Eritrea",
+    "countryCode": "er"
+  },
+  {
+    "name": "Gabon",
+    "link": "https://www.tide-forecast.com/countries/Gabon",
+    "countryCode": "ga"
+  },
+  {
+    "name": "Gambia",
+    "link": "https://www.tide-forecast.com/countries/Gambia",
+    "countryCode": "gm"
+  },
+  {
+    "name": "Ghana",
+    "link": "https://www.tide-forecast.com/countries/Ghana",
+    "countryCode": "gh"
+  },
+  {
+    "name": "Guinea",
+    "link": "https://www.tide-forecast.com/countries/Guinea",
+    "countryCode": "gn"
+  },
+  {
+    "name": "Guinea bissau",
+    "link": "https://www.tide-forecast.com/countries/Guinea-bissau",
+    "countryCode": "gw"
+  },
+  {
+    "name": "Kenya",
+    "link": "https://www.tide-forecast.com/countries/Kenya",
+    "countryCode": "ke"
+  },
+  {
+    "name": "Liberia",
+    "link": "https://www.tide-forecast.com/countries/Liberia",
+    "countryCode": "lr"
+  },
+  {
+    "name": "Madagascar",
+    "link": "https://www.tide-forecast.com/countries/Madagascar",
+    "countryCode": "mg"
+  },
+  {
+    "name": "Mauritania",
+    "link": "https://www.tide-forecast.com/countries/Mauritania",
+    "countryCode": "mr"
+  },
+  {
+    "name": "Mayotte",
+    "link": "https://www.tide-forecast.com/countries/Mayotte",
+    "countryCode": "yt"
+  },
+  {
+    "name": "Morocco",
+    "link": "https://www.tide-forecast.com/countries/Morocco",
+    "countryCode": "ma"
+  },
+  {
+    "name": "Mozambique",
+    "link": "https://www.tide-forecast.com/countries/Mozambique",
+    "countryCode": "mz"
+  },
+  {
+    "name": "Namibia",
+    "link": "https://www.tide-forecast.com/countries/Namibia",
+    "countryCode": "na"
+  },
+  {
+    "name": "Nigeria",
+    "link": "https://www.tide-forecast.com/countries/Nigeria",
+    "countryCode": "ng"
+  },
+  {
+    "name": "Sao Tome and Principe",
+    "link": "https://www.tide-forecast.com/countries/Sao-Tome-and-Principe",
+    "countryCode": "st"
+  },
+  {
+    "name": "Senegal",
+    "link": "https://www.tide-forecast.com/countries/Senegal",
+    "countryCode": "sn"
+  },
+  {
+    "name": "Sierra Leone",
+    "link": "https://www.tide-forecast.com/countries/Sierra-Leone",
+    "countryCode": "sl"
+  },
+  {
+    "name": "Somalia",
+    "link": "https://www.tide-forecast.com/countries/Somalia",
+    "countryCode": "so"
+  },
+  {
+    "name": "South Africa",
+    "link": "https://www.tide-forecast.com/countries/South-Africa",
+    "countryCode": "za"
+  },
+  {
+    "name": "St Helena",
+    "link": "https://www.tide-forecast.com/countries/St-Helena",
+    "countryCode": "sh"
+  },
+  {
+    "name": "Tanzania",
+    "link": "https://www.tide-forecast.com/countries/Tanzania",
+    "countryCode": "tz"
+  },
+  {
+    "name": "Togo",
+    "link": "https://www.tide-forecast.com/countries/Togo",
+    "countryCode": "tg"
+  },
+  {
+    "name": "Tunisia",
+    "link": "https://www.tide-forecast.com/countries/Tunisia",
+    "countryCode": "tn"
+  },
+  {
+    "name": "Western Sahara",
+    "link": "https://www.tide-forecast.com/countries/Western-Sahara",
+    "countryCode": "eh"
+  },
+  {
+    "name": "Antarctica",
+    "link": "https://www.tide-forecast.com/countries/Antarctica",
+    "countryCode": "gs"
+  },
+  {
+    "name": "French Southern and Antarctic Lands",
+    "link": "https://www.tide-forecast.com/countries/French-Southern-and-Antarctic-Lands",
+    "countryCode": "tf"
+  },
+  {
+    "name": "South Georgia and the South Sandwich Islands",
+    "link": "https://www.tide-forecast.com/countries/South-Georgia-and-the-South-Sandwich-Islands",
+    "countryCode": "gs"
+  },
+  {
+    "name": "Algeria",
+    "link": "https://www.tide-forecast.com/countries/Algeria",
+    "countryCode": "dz"
+  },
+  {
+    "name": "Aruba",
+    "link": "https://www.tide-forecast.com/countries/Aruba",
+    "countryCode": "aw"
+  },
+  {
+    "name": "Ascension Island",
+    "link": "https://www.tide-forecast.com/countries/Ascension-Island",
+    "countryCode": "sh"
+  },
+  {
+    "name": "Benin",
+    "link": "https://www.tide-forecast.com/countries/Benin",
+    "countryCode": "bj"
+  },
+  {
+    "name": "British Virgin Islands",
+    "link": "https://www.tide-forecast.com/countries/British-Virgin-Islands",
+    "countryCode": "vg"
+  },
+  {
+    "name": "Brunei Darussalam",
+    "link": "https://www.tide-forecast.com/countries/Brunei-Darussalam",
+    "countryCode": "bn"
+  },
+  {
+    "name": "Bulgaria",
+    "link": "https://www.tide-forecast.com/countries/Bulgaria",
+    "countryCode": "bg"
+  },
+  {
+    "name": "Comoros",
+    "link": "https://www.tide-forecast.com/countries/Comoros",
+    "countryCode": "km"
+  },
+  {
+    "name": "Cyprus",
+    "link": "https://www.tide-forecast.com/countries/Cyprus",
+    "countryCode": "cy"
+  },
+  {
+    "name": "East Timor",
+    "link": "https://www.tide-forecast.com/countries/East-Timor",
+    "countryCode": "tl"
+  },
+  {
+    "name": "Georgia",
+    "link": "https://www.tide-forecast.com/countries/Georgia",
+    "countryCode": "ge"
+  },
+  {
+    "name": "Gilbert Islands",
+    "link": "https://www.tide-forecast.com/countries/Gilbert-Islands",
+    "countryCode": "ki"
+  },
+  {
+    "name": "Guernsey",
+    "link": "https://www.tide-forecast.com/countries/Guernsey",
+    "countryCode": "gg"
+  },
+  {
+    "name": "Heard Island and Mc Donald Islands",
+    "link": "https://www.tide-forecast.com/countries/Heard-Island-and-Mc-Donald-Islands",
+    "countryCode": "tf"
+  },
+  {
+    "name": "Howland Island",
+    "link": "https://www.tide-forecast.com/countries/Howland-Island",
+    "countryCode": "ki"
+  },
+  {
+    "name": "Israel",
+    "link": "https://www.tide-forecast.com/countries/Israel",
+    "countryCode": "il"
+  },
+  {
+    "name": "Lebanon",
+    "link": "https://www.tide-forecast.com/countries/Lebanon",
+    "countryCode": "lb"
+  },
+  {
+    "name": "Libya",
+    "link": "https://www.tide-forecast.com/countries/Libya",
+    "countryCode": "ly"
+  },
+  {
+    "name": "Lithuania",
+    "link": "https://www.tide-forecast.com/countries/Lithuania",
+    "countryCode": "lt"
+  },
+  {
+    "name": "Maldives",
+    "link": "https://www.tide-forecast.com/countries/Maldives",
+    "countryCode": "mv"
+  },
+  {
+    "name": "Mauritius",
+    "link": "https://www.tide-forecast.com/countries/Mauritius",
+    "countryCode": "mu"
+  },
+  {
+    "name": "Midway Islands",
+    "link": "https://www.tide-forecast.com/countries/Midway-Islands",
+    "countryCode": "us"
+  },
+  {
+    "name": "Reunion",
+    "link": "https://www.tide-forecast.com/countries/Reunion",
+    "countryCode": "re"
+  },
+  {
+    "name": "Saint Kitts and Nevis",
+    "link": "https://www.tide-forecast.com/countries/Saint-Kitts-and-Nevis",
+    "countryCode": "kn"
+  },
+  {
+    "name": "Serbia and Montenegro",
+    "link": "https://www.tide-forecast.com/countries/Serbia-and-Montenegro",
+    "countryCode": "me"
+  },
+  {
+    "name": "Seychelles",
+    "link": "https://www.tide-forecast.com/countries/Seychelles",
+    "countryCode": "sc"
+  },
+  {
+    "name": "Spain",
+    "link": "https://www.tide-forecast.com/countries/Spain-1",
+    "countryCode": "es"
+  },
+  {
+    "name": "St. Pierre and Miquelon",
+    "link": "https://www.tide-forecast.com/countries/St-Pierre-and-Miquelon",
+    "countryCode": "pm"
+  },
+  {
+    "name": "Syria",
+    "link": "https://www.tide-forecast.com/countries/Syria",
+    "countryCode": "sy"
+  },
+  {
+    "name": "Tahiti",
+    "link": "https://www.tide-forecast.com/countries/Tahiti",
+    "countryCode": "pf"
+  },
+  {
+    "name": "Wake Island",
+    "link": "https://www.tide-forecast.com/countries/Wake-Island",
+    "countryCode": "mh"
+  },
+  {
+    "name": "West Bank (Palestine)",
+    "link": "https://www.tide-forecast.com/countries/West-Bank-Palestine",
+    "countryCode": "ps"
+  }
+]
