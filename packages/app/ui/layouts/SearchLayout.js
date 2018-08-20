@@ -58,7 +58,7 @@ class SearchLayout extends React.Component {
           onSearchStateChange={this.onSearchStateChange}
           searchState={this.state.searchState}
         >
-          <Configure hitsPerPage={12} />
+          <Configure aroundLatLngViaIP hitsPerPage={12} />
           <SideBar>
             <Divider hidden />
             <AlgoliaSearchBox />
