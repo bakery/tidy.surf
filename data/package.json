@@ -12,6 +12,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "decode-html": "^2.0.0",
     "lodash": "^4.17.10",
     "scrape-it": "^5.0.5"
   }

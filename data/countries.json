@@ -1,7 +1,7 @@
 [
   {
     "name": "United States",
-    "link": "https://www.tide-forecast.com/countries/United-States/regions",
+    "link": "https://www.tide-forecast.com/countries/United-States",
     "countryCode": "us"
   },
   {
@@ -36,7 +36,7 @@
   },
   {
     "name": "Canada",
-    "link": "https://www.tide-forecast.com/countries/Canada/regions",
+    "link": "https://www.tide-forecast.com/countries/Canada",
     "countryCode": "ca"
   },
   {
@@ -286,7 +286,7 @@
   },
   {
     "name": "Russia",
-    "link": "https://www.tide-forecast.com/countries/Russia/regions",
+    "link": "https://www.tide-forecast.com/countries/Russia",
     "countryCode": "ru"
   },
   {
@@ -531,7 +531,7 @@
   },
   {
     "name": "Australia",
-    "link": "https://www.tide-forecast.com/countries/Australia/regions",
+    "link": "https://www.tide-forecast.com/countries/Australia",
     "countryCode": "au"
   },
   {
