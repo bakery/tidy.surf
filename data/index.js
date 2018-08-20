@@ -1,90 +1,58 @@
-const fs = require('fs')
-const countries = require('./countries.json')
-const _ = require('lodash')
-const scrapeIt = require('scrape-it')
-var decodeHtml = require('decode-html');
+require('dotenv').config();
 
-const getTopCitiesInCountry = url => {
-  const topCitiesUrl = `${url}?top100=yes`;
-  console.log(`hittings ${topCitiesUrl}`);
-  return scrapeIt(topCitiesUrl, {
-    links: {
-      listItem: 'a',
-      data: {
-        name: {
-          selector: 'div',
-          how: 'html'
-        }, 
-        href: {
-          attr: 'href'
-        }
-      }
-    }
-  }).then(({ data }) => {
-    // filter all the links down to
-    const locationLinks = _.map(
-      _.filter(data.links, l => l.href && l.href.match(/^\/locations\/.+\/tides\/latest$/i)),
-      l => _.extend(l, {
-        name: decodeHtml(l.name),
-        locationParts: l.href.match(/^\/locations\/(.+)\/tides\/latest$/i)[1].split('-')
-      })
-    );
-    console.log(locationLinks, `total: ${locationLinks.length}`);
-    return locationLinks;
-  })
-}
+const fs = require('fs');
+const path = require('path');
+const mongoose = require('mongoose');
+const request = require('request');
+const { Location } = require('./models/location');
+const { geocodeLocation, getTimezone } = require('./geo');
 
-const processCountry = ({ name, link, countryCode }) => {
-  return getTopCitiesInCountry(link).then(topCities => {
-    const outputFileName = `./results/${countryCode}.json`;
+// mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true });
+// const db = mongoose.connection;
 
-    if (fs.existsSync(outputFileName)) {
-      console.log(`${outputFileName} already exists. Skipping ${name}`);
-      return Promise.resolve();
-    }
+// db.on('error', error => console.error(`Failed to connect to the DB: ${error.message}`));
+// db.once('open', () => {
+//   console.log('All connected!');
 
-    return new Promise((resolve, reject) => {
-      const cities = _.map(topCities, tc => ({
-        name: tc.name,
-        locationParts: tc.locationParts,
-        countryCode,
-        country: name
-      }));
+//   const baseDir = './results';
 
-      fs.writeFile(outputFileName, JSON.stringify(cities), function(err) {
-        if(err) {
-          reject(err)
-        } else {
-          resolve();
-        }
-      });
-    });
-  })
-};
+//   fs.readdir(baseDir, (err, files) => {
+//     if (err) {
+//       console.error(`Failed to grab files from ./results: ${err.message}`);
+//       return;
+//     }
 
+//     files.forEach( function(file) {
+//       const fullPath = path.resolve(baseDir, file);
+//       const locations = JSON.parse(fs.readFileSync(fullPath));
 
-function processAllCountries(countries) {
-  const f = error => {
-    if (error) {
-      console.error(`Error processing country: ${error.message}`);
-    }
+//       console.log(`processing ${fullPath} - ${locations.length} locations`);
 
-    return processAllCountries(_.tail(countries))
-  };
-
-  return countries.length === 0 ? Promise.resolve() :
-    processCountry(_.first(countries)).then(() => f()).catch(f);
-}
-
-processAllCountries(countries);
-
-// _.each(countries, ({ name, link, countryCode}) => {
-//   console.log(`${name} ${link} ${countryCode}`)
+//       Location.insertMany(locations, (error, docs) => {
+//         if (error) {
+//           console.error(`Failed to insert locations for ${file}: ${error.message}`);
+//         } else {
+//           console.log(`Locations inserted for ${file}`);
+//         }
+//       });
+//     });
+//   });
 // });
 
-//processCountry(countries[0]).then(() => console.log('Done')).catch(error => console.error(`Failed: ${error.message}`))
+geocodeLocation('Japan', [
+  "Yasugi",
+  "Simane",
+  "Japan"
+]).then(location => {
+  console.log('got geo', location)
+  getTimezone(location.lat, location.lng).then(tz => {
+    console.log('Got tz', tz)
+  })
+}).catch(error => {
+  console.error('geo fuck', error)
+})
+
 
 process.stdin.setRawMode(true);
 process.stdin.resume();
 process.stdin.on('data', process.exit.bind(process, 0));
-
