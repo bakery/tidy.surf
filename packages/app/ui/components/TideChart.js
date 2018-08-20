@@ -44,7 +44,7 @@ export default class TideChart extends React.Component {
     const xScale = d3.scaleLinear().domain([mindt.dt, maxdt.dt]).range(
       [canvasOffset * this.state.svgContainerWidth, (1 - canvasOffset) * this.state.svgContainerWidth]
     );
-    const yScale = d3.scaleLinear().domain([minHeight.height, maxHeight.height]).range(
+    const yScale = d3.scaleLinear().domain([maxHeight.height, minHeight.height]).range(
       [canvasOffset * this.state.svgContainerHeight, (1 - canvasOffset) * this.state.svgContainerHeight]
     );
     const points = _.map(
@@ -68,27 +68,23 @@ export default class TideChart extends React.Component {
             d={d}
           />
           {
-            _.map(points, (p, k) => {
+            _.map(data, (p, k) => {
               return (
                 <React.Fragment>
-                  {
-                    k < data.length ?
-                      <foreignObject
-                        x={xScale(p[0]) - 25}
-                        y={
-                          data[k].type === 'High' ?
-                            yScale(p[1]) + 15 :
-                            yScale(p[1]) - 30
-                        }
-                      >
-                        <div className="dot-label">
-                          <p>{data[k].prettyTimeLabel}</p>
-                          <p>{data[k].height}m</p>
-                        </div>
-                      </foreignObject> :
-                      null
-                  }
-                  <circle className="dot" cx={xScale(p[0])} cy={yScale(p[1])} r={5} />
+                  <foreignObject
+                    x={xScale(points[k + 1][0]) - 25}
+                    y={
+                      p.type === 'High' ?
+                        yScale(points[k + 1][1]) + 20 :
+                        yScale(points[k + 1][1]) - 35
+                    }
+                  >
+                    <div className="dot-label">
+                      <p>{p.prettyTimeLabel}</p>
+                      <p>{p.height}m</p>
+                    </div>
+                  </foreignObject>
+                  <circle className="dot" cx={xScale(points[k + 1][0])} cy={yScale(points[k + 1][1])} r={5} />
                 </React.Fragment>
               )
             })
