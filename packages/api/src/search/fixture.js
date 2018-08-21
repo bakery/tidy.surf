@@ -1,22 +1,28 @@
 import _ from 'lodash'
-import Spots from '../spots/data'
 import Search from './index'
+import Spots from '../../fixtures/locations.json'
+import { slugify } from '../lib/helpers'
 
 export function resyncAllSearchIndices() {
   const spotsIndex = Search.getIndex('Spots');
-  return spotsIndex.addObjects(_.map(Spots, spot => {
-    const { citySlug, stateSlug, countrySlug, lat, lon } = spot;
-    const base = _.pick(
-      spot,
-      'city', 'state', 'country', 'timezone', 'citySlug', 'countrySlug', 'stateSlug'
-    );
+  const chunks = _.chunk(Spots, 100);
 
-    return _.extend(base, {
-      objectID: `${citySlug}-${stateSlug}-${countrySlug}`,
-      _geoloc: {
-        lat,
-        lng: lon
-      }
-    })
-  }))
+  return Promise.all(_.map(chunks, chunk => {
+    return spotsIndex.addObjects(_.map(chunk, spot => {
+      const { city, country, region, lat, lng } = spot;
+      const citySlug = slugify(city);
+      const countrySlug = slugify(country);
+      const regionSlug = slugify(region);
+
+      const base = _.pick(spot, 'city', 'region', 'country', 'timezone');
+
+      return _.extend(base, {
+        objectID: region ?  `${citySlug}-${regionSlug}-${countrySlug}` : `${citySlug}-${countrySlug}`,
+        _geoloc: {
+          lat,
+          lng,
+        }
+      })
+    }))
+  }));
 }

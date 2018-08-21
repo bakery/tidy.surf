@@ -43,7 +43,8 @@
       "browser": false,
       "expect": false,
       "process": false,
-      "global": false
+      "global": false,
+      "Promise": false
     },
     "env": {
       "jest/globals": true
