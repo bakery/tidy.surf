@@ -24,7 +24,6 @@ export default class TideChart extends React.Component {
   }
   render() {
     const { data } = this.props;
-    console.log('data', data);
     const mindt = _.minBy(data, 'dt');
     const maxdt = _.maxBy(data, 'dt');
     const minHeight = _.minBy(data, 'height');
