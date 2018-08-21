@@ -1,6 +1,7 @@
 import React from 'react';
-import PropTypes from 'prop-types'
-import { Tab, Grid } from 'semantic-ui-react'
+import PropTypes from 'prop-types';
+import { Tab } from 'semantic-ui-react';
+import TideChart from './TideChart';
 
 export default class TidePane extends React.Component {
   render() {
@@ -23,19 +24,7 @@ export default class TidePane extends React.Component {
               : null
           }
           </p>
-          <Grid columns={data.length}>
-            <Grid.Row>
-              {data.map(({ dt, prettyTimeLabel, height, type }) => (
-                <Grid.Column key={dt}>
-                  <div className={type === 'High' ? 'highTide' : 'lowTide'}>
-                    {prettyTimeLabel}
-                    <hr/>
-                    {height}m
-                  </div>
-                </Grid.Column>
-              ))}
-            </Grid.Row>
-          </Grid>
+          <TideChart data={data} />
         </section>
       </Tab.Pane>
     )

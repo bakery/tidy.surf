@@ -106,6 +106,7 @@ module.exports = {
     'tab',
     'table',
     'transition',
-    'visibility'
+    'visibility',
+    'tide-chart'
   ]
 };

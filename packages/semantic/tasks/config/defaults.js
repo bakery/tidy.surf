@@ -63,6 +63,7 @@ module.exports = {
     'reveal',
     'segment',
     'step',
+    'tide-chart',
 
     // collections
     'breadcrumb',
