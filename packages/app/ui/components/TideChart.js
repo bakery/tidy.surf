@@ -54,7 +54,7 @@ export default class TideChart extends React.Component {
     const d = `${line(points)} L ${this.state.svgContainerWidth} ${this.state.svgContainerHeight + 10} L 0 ${this.state.svgContainerHeight + 10}`
     return (
       <div ref={this.svgContainer}>
-        <svg id="canvas" viewBox={`0 0 ${this.state.svgContainerWidth} ${this.state.svgContainerHeight}`}>
+        <svg viewBox={`0 0 ${this.state.svgContainerWidth} ${this.state.svgContainerHeight}`}>
           <defs>
             <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="0%">
               <stop offset="0%" style={{stopColor: '#4D6490', stopOpacity:1}} />
@@ -69,7 +69,7 @@ export default class TideChart extends React.Component {
           {
             _.map(data, (p, k) => {
               return (
-                <React.Fragment>
+                <React.Fragment key={k}>
                   <foreignObject
                     x={xScale(points[k + 1][0]) - 25}
                     y={
