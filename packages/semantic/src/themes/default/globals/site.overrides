@@ -8,7 +8,7 @@ html, body {
  height: 100%;
 }
 
-#__next, .layoutWrap {
+#__next, .layoutWrap, .base {
   height: 100%;
 }
 

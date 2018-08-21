@@ -45,10 +45,6 @@ export default class SideBar extends Component {
             <Icon name='tint' />
             Tides
           </Menu.Item>
-          <Menu.Item as='a' href='/search'>
-            <Icon name='search' />
-            Search
-          </Menu.Item>
           <Menu.Item as='a' onClick={this.handleButtonClick}>
             <Icon name='close' />
             Close

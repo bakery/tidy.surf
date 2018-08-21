@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { Divider, Icon, Input, Grid } from 'semantic-ui-react';
+import { Divider, Icon, Input, Grid, Container } from 'semantic-ui-react';
 import Router from 'next/router';
 
 const navigateToSearchPage = (query) =>
@@ -35,26 +35,28 @@ export default class InputSearchBox extends Component {
   render() {
     const { handleButtonClick } = this.props;
     return (
-      <Grid.Row>
-        <Grid.Column>
-          <Divider hidden />
-          <div className="searchBoxWrap">
-            <Input
-              onKeyDown={this.handleKeyDown}
-              onChange={this.handleChange} 
-              type='search'
-              icon='search'
-              size='large'
-              fluid
-              placeholder='Search...'
-              value={this.state.query}
-            />
-            <div className="sidebarButton">
-              <Icon color='grey' link name='bars' onClick={handleButtonClick} />
+      <Container>
+        <Grid.Row columns={1}>
+          <Grid.Column>
+            <Divider hidden />
+            <div className="searchBoxWrap">
+              <Input
+                onKeyDown={this.handleKeyDown}
+                onChange={this.handleChange} 
+                type='search'
+                icon='search'
+                size='large'
+                fluid
+                placeholder='Search...'
+                value={this.state.query}
+              />
+              <div className="sidebarButton">
+                <Icon color='grey' link name='bars' onClick={handleButtonClick} />
+              </div>
             </div>
-          </div>
-        </Grid.Column>
-      </Grid.Row>
+          </Grid.Column>
+        </Grid.Row>
+      </Container>
     );
   }
 }

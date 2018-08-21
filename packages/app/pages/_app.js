@@ -1,5 +1,4 @@
 import App, { Container } from 'next/app';
-import { Container as UIContainer } from 'semantic-ui-react'
 import React from 'react';
 import withApolloClient from '../lib/with-apollo';
 import { ApolloProvider } from 'react-apollo';
@@ -10,16 +9,14 @@ class MyApp extends App {
   render () {
     const { Component, pageProps, apolloClient } = this.props
     return (
-      <div>
+      <div className="base">
         <Head>
           <link rel='stylesheet' href='/_next/static/style.css' />
           <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/instantsearch.css@7.0.0/themes/algolia-min.css' />
         </Head>
         <ApolloProvider client={apolloClient}>
           <Container>
-            <UIContainer>
-              <Component {...pageProps} />
-            </UIContainer>
+            <Component {...pageProps} />
           </Container>
         </ApolloProvider>
       </div>
